@@ -753,15 +753,24 @@
   }
 
   /* ===== TRUST ===== */
-  .trust { background: var(--cream); }
-  .trust-header { text-align: center; margin-bottom: 50px; }
-  .trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 40px; }
-  .trust-item { background: var(--white); border-radius: 20px; padding: 32px 20px; text-align: center; border: 1px solid var(--gray-200); box-shadow: var(--shadow-sm); transition: var(--transition); }
-  .trust-item:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: var(--gold-light); }
-  .trust-icon { width: 60px; height: 60px; border-radius: 50%; background: rgba(201,169,110,0.1); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 26px; border: 1px solid rgba(201,169,110,0.2); }
-  .trust-num { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 700; color: var(--navy); }
-  .trust-label { font-size: 13px; color: var(--gray-500); margin-top: 6px; line-height: 1.5; }
-  .trust-cta { text-align: center; }
+  .trust { background: var(--cream); overflow: hidden; }
+  .trust-inner { display: grid; grid-template-columns: 5fr 7fr; gap: 50px; align-items: center; }
+  .trust-header { text-align: left; margin-bottom: 30px; }
+  .trust-header .section-label { justify-content: flex-start; }
+  .trust-header .section-title { margin-left: 0; }
+  .trust-img { border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-md); position: relative; }
+  .trust-img img { width: 100%; height: auto; display: block; aspect-ratio: 4/5; object-fit: cover; }
+  .trust-img-badge { position: absolute; bottom: 30px; left: -20px; background: var(--gold); color: var(--navy-deep); width: 100px; height: 100px; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; text-align: center; border: 4px solid var(--white); box-shadow: var(--shadow-sm); z-index: 2; }
+  .trust-img-badge span { font-size: 24px; }
+  
+  .trust-list { display: flex; flex-direction: column; gap: 20px; }
+  .trust-item { display: flex; gap: 16px; background: var(--white); border-radius: 16px; padding: 20px; border: 1px solid var(--gray-200); box-shadow: var(--shadow-sm); transition: var(--transition); }
+  .trust-item:hover { transform: translateX(5px); box-shadow: var(--shadow-md); border-color: rgba(201,169,110,0.5); }
+  .trust-icon { width: 48px; height: 48px; border-radius: 12px; background: rgba(201,169,110,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 24px; color: var(--navy); border: 1px solid rgba(201,169,110,0.2); }
+  .trust-content h4 { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 6px; font-family: 'Be Vietnam Pro', sans-serif;}
+  .trust-content p { font-size: 14px; color: var(--gray-700); line-height: 1.6; }
+  
+  @media (max-width: 992px) { .trust-inner { grid-template-columns: 1fr; } .trust-header { text-align: center; } .trust-header .section-label { justify-content: center; } .trust-header .section-title { margin: 0 auto; } .trust-img { order: -1; max-width: 500px; margin: 0 auto 30px; } .trust-img-badge { left: 10px; } }
 
   /* ===== CAROUSEL (HIỆU QUẢ ĐIỀU TRỊ) ===== */
   .carousel { background: var(--white); text-align: center; }
@@ -1331,35 +1340,57 @@
 
 <!-- TRUST -->
 <section class="section trust">
-  <div class="section-inner">
-    <div class="trust-header reveal">
-      <div class="section-label">Vì sao nhiều khách hàng tin chọn Nha Khoa Đông Nam?</div>
-      <h2 class="section-title">Nha khoa chuyên sâu Implant hơn 20 năm</h2>
-    </div>
-    <div class="trust-grid">
-      <div class="trust-item reveal" style="transition-delay: 0.1s;">
-        <div class="trust-icon">🏥</div>
-        <div class="trust-num">20+</div>
-        <div class="trust-label">Năm hoạt động liên tục</div>
-      </div>
-      <div class="trust-item reveal" style="transition-delay: 0.2s;">
-        <div class="trust-icon">👨‍⚕️</div>
-        <div class="trust-num">152.000+</div>
-        <div class="trust-label">Khách hàng tin chọn</div>
-      </div>
-      <div class="trust-item reveal" style="transition-delay: 0.3s;">
-        <div class="trust-icon">🦷</div>
-        <div class="trust-num">10.500+</div>
-        <div class="trust-label">Ca Implant thành công</div>
-      </div>
-      <div class="trust-item reveal" style="transition-delay: 0.4s;">
-        <div class="trust-icon">📋</div>
-        <div class="trust-num">2</div>
-        <div class="trust-label">Giấy phép Bộ Y tế</div>
+  <div class="section-inner trust-inner">
+    <div class="trust-left reveal-left">
+      <div class="trust-img">
+        <img src="https://images.unsplash.com/photo-1579684453401-8c08103cd316?auto=format&fit=crop&w=800&q=80" alt="Đội ngũ bác sĩ Đông Nam" loading="lazy">
+        <div class="trust-img-badge">
+          <span>20+</span> Năm
+        </div>
       </div>
     </div>
-    <div class="trust-cta reveal">
-      <a href="#dang-ky" class="btn-navy">Đăng ký nhận ưu đãi →</a>
+    <div class="trust-right reveal-right">
+      <div class="trust-header">
+        <div class="section-label">Vì sao nhiều khách hàng tin chọn Nha Khoa Đông Nam?</div>
+        <h2 class="section-title">Kết quả bền vững — An tâm trọn đời</h2>
+      </div>
+      <div class="trust-list">
+        <div class="trust-item" style="transition-delay: 0.1s;">
+          <div class="trust-icon">👨‍⚕️</div>
+          <div class="trust-content">
+            <h4>Hơn 20 năm kinh nghiệm trong lĩnh vực nha khoa</h4>
+            <p>Thành lập và phát triển hơn 20 năm, Nha khoa Đông Nam đã thực hiện hơn 10.500 ca cấy ghép Implant, được các trang báo điện tử uy tín (Dân Trí, VnExpress, CafeF...) đánh giá cao.</p>
+          </div>
+        </div>
+        <div class="trust-item" style="transition-delay: 0.2s;">
+          <div class="trust-icon">💖</div>
+          <div class="trust-content">
+            <h4>Đội ngũ bác sĩ giàu kinh nghiệm, tận tâm</h4>
+            <p>Đội ngũ bác sĩ không chỉ giỏi chuyên môn mà còn luôn tận tâm, nhẹ nhàng, giúp cô chú, anh chị yên tâm trong suốt quá trình điều trị.</p>
+          </div>
+        </div>
+        <div class="trust-item" style="transition-delay: 0.3s;">
+          <div class="trust-icon">🔬</div>
+          <div class="trust-content">
+            <h4>Ứng dụng công nghệ nha khoa hiện đại</h4>
+            <p>Đầu tư nhiều hệ thống thiết bị hỗ trợ chẩn đoán và điều trị hiện đại như: máy CT ConeBeam, định vị Implant Navident, lấy dấu Scan 3Shape Trios, công nghệ CAD/CAM, công nghệ Piezotome hỗ trợ nhổ răng hạn chế đau nhức.</p>
+          </div>
+        </div>
+        <div class="trust-item" style="transition-delay: 0.4s;">
+          <div class="trust-icon">🛡️</div>
+          <div class="trust-content">
+            <h4>Quy trình vô trùng theo tiêu chuẩn nha khoa</h4>
+            <p>Tuân thủ nghiêm ngặt quy trình vô trùng để đảm bảo an toàn, tránh lây nhiễm, giúp khách hàng thoải mái và an tâm khi điều trị.</p>
+          </div>
+        </div>
+        <div class="trust-item" style="transition-delay: 0.5s;">
+          <div class="trust-icon">📋</div>
+          <div class="trust-content">
+            <h4>Tư vấn rõ ràng, chi phí minh bạch</h4>
+            <p>Bác sĩ tư vấn chi tiết về tình trạng răng, lựa chọn phương án tối ưu. Mọi chi phí đều minh bạch, không phát sinh, phù hợp với nhu cầu tài chính.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
