@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tri Ân 20 Năm — Nha Khoa Đông Nam</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1B2A4A;
+    --navy-deep: #0F1B33;
+    --navy-light: #2C3E6B;
+    --gold: #C9A96E;
+    --gold-light: #E8D5A8;
+    --gold-dark: #A88942;
+    --cream: #FDF8F0;
+    --white: #FFFFFF;
+    --gray-100: #F7F5F2;
+    --gray-200: #E8E4DF;
+    --gray-500: #8A8580;
+    --gray-700: #4A4540;
+    --text-body: #3A3530;
+    --implant-accent: #1B6B5A;
+    --implant-light: #E8F5F0;
+    --red-urgent: #C0392B;
+    --red-light: #FFF5F4;
+    --shadow-sm: 0 4px 12px rgba(27,42,74,0.08);
+    --shadow-md: 0 12px 30px rgba(27,42,74,0.12);
+    --shadow-gold: 0 8px 25px rgba(201,169,110,0.4);
+    --transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
+  body {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    color: var(--text-body);
+    background: var(--cream);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ===== REVEAL ===== */
+  .reveal { opacity: 0; transform: translateY(40px); transition: var(--transition); transition-duration: 0.8s; }
+  .reveal.active { opacity: 1; transform: translateY(0); }
+  .reveal-left { opacity: 0; transform: translateX(-50px); transition: var(--transition); transition-duration: 0.8s; }
+  .reveal-left.active { opacity: 1; transform: translateX(0); }
+  .reveal-right { opacity: 0; transform: translateX(50px); transition: var(--transition); transition-duration: 0.8s; }
+  .reveal-right.active { opacity: 1; transform: translateX(0); }
+
+  /* ===== URGENCY TOPBAR WITH COUNTDOWN ===== */
+  .topbar {
+    background: var(--red-urgent);
+    color: var(--white);
+    text-align: center;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .topbar-text { display: inline; }
+  .countdown {
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+  }
+  .countdown-unit {
+    background: rgba(0,0,0,0.25);
+    border-radius: 6px;
+    padding: 3px 8px;
+    min-width: 36px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 1px;
+    font-variant-numeric: tabular-nums;
+  }
+  .countdown-sep {
+    font-weight: 300;
+    opacity: 0.7;
+    font-size: 13px;
+  }
+
+  /* ===== HEADER ===== */
+  .header {
+    background: rgba(27,42,74,0.97);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 14px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .header-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
+  .logo-text { font-family: 'Playfair Display', serif; color: var(--white); font-size: 22px; font-weight: 700; letter-spacing: 1px; }
+  .logo-text span { color: var(--gold); }
+  .header-cta-btn {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy-deep);
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+    transition: var(--transition);
+  }
+  .header-cta-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-gold); }
+
+  /* ===== BUTTONS ===== */
+  .btn-primary {
+    display: inline-block; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: var(--navy-deep);
+    padding: 16px 40px; border-radius: 50px; font-size: 15px; font-weight: 700; text-decoration: none; letter-spacing: 0.5px;
+    transition: var(--transition); box-shadow: var(--shadow-gold); border: none; cursor: pointer;
+  }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(201,169,110,0.5); }
+  .btn-secondary {
+    display: inline-block; background: transparent; color: var(--gold); padding: 14px 36px; border-radius: 50px;
+    font-size: 14px; font-weight: 500; text-decoration: none; border: 1.5px solid var(--gold); transition: var(--transition); cursor: pointer;
+  }
+  .btn-secondary:hover { background: var(--gold); color: var(--navy-deep); }
+  .btn-navy {
+    display: inline-block; background: var(--navy); color: var(--white); padding: 16px 40px; border-radius: 50px;
+    font-size: 15px; font-weight: 600; text-decoration: none; transition: var(--transition); box-shadow: var(--shadow-sm); border: none; cursor: pointer;
+  }
+  .btn-navy:hover { background: var(--navy-deep); transform: translateY(-3px); box-shadow: var(--shadow-md); }
+  .btn-implant {
+    display: inline-block; background: var(--implant-accent); color: var(--white); padding: 16px 40px; border-radius: 50px;
+    font-size: 15px; font-weight: 600; text-decoration: none; transition: var(--transition); box-shadow: 0 4px 15px rgba(27,107,90,0.25); border: none; cursor: pointer;
+  }
+  .btn-implant:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(27,107,90,0.4); }
+
+  /* ===== SECTION COMMON ===== */
+  .section { padding: 80px 24px; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold-dark); font-weight: 600; margin-bottom: 10px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 40px); font-weight: 700; color: var(--navy); line-height: 1.3; margin-bottom: 16px; }
+  .section-desc { font-size: 16px; color: var(--gray-500); max-width: 650px; line-height: 1.8; }
+
+  /* ===== HERO (Split with Form) ===== */
+  .hero {
+    background: linear-gradient(165deg, var(--navy-deep) 0%, var(--navy) 45%, var(--navy-light) 100%);
+    padding: 50px 24px 70px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -30%; right: -10%;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(201,169,110,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 50px;
+    align-items: center;
+  }
+  .hero-badge {
+    display: inline-block; border: 1px solid var(--gold); color: var(--gold); background: rgba(201,169,110,0.08);
+    padding: 6px 20px; border-radius: 30px; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; font-weight: 600;
+  }
+  .hero h1 { font-family: 'Playfair Display', serif; color: var(--white); font-size: clamp(30px, 4.5vw, 46px); font-weight: 700; line-height: 1.25; }
+  .hero h1 em { font-style: normal; color: var(--gold); display: block; font-size: clamp(34px, 5.5vw, 52px); font-weight: 800; margin-top: 4px; }
+  .hero-sub { color: rgba(255,255,255,0.8); font-size: 16px; font-weight: 400; max-width: 480px; margin: 18px 0 0; line-height: 1.8; }
+  .hero-stats { display: flex; gap: 32px; margin-top: 30px; flex-wrap: wrap; }
+  .hero-stat-num { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 700; color: var(--gold); }
+  .hero-stat-label { font-size: 12px; color: rgba(255,255,255,0.55); margin-top: 2px; }
+
+  /* ===== LEAD FORM ===== */
+  .hero-form-wrapper {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 36px 32px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    position: relative;
+    z-index: 2;
+  }
+  .form-header {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .form-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .form-header p {
+    font-size: 13px;
+    color: var(--gray-500);
+    line-height: 1.6;
+  }
+  .form-urgency-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--red-light);
+    color: var(--red-urgent);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  .form-urgency-badge::before {
+    content: '';
+    width: 8px; height: 8px;
+    background: var(--red-urgent);
+    border-radius: 50%;
+    animation: pulse-dot 1.5s infinite;
+  }
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  .form-group {
+    margin-bottom: 14px;
+  }
+  .form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 5px;
+  }
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid var(--gray-200);
+    border-radius: 12px;
+    font-size: 14px;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    color: var(--text-body);
+    background: var(--gray-100);
+    transition: var(--transition);
+    outline: none;
+  }
+  .form-group input:focus,
+  .form-group select:focus {
+    border-color: var(--gold);
+    background: var(--white);
+    box-shadow: 0 0 0 3px rgba(201,169,110,0.15);
+  }
+  .form-group input::placeholder { color: var(--gray-500); }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .form-submit {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: var(--navy-deep);
+    border: none;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow-gold);
+    margin-top: 4px;
+    letter-spacing: 0.3px;
+  }
+  .form-submit:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(201,169,110,0.5); }
+  .form-note {
+    text-align: center;
+    font-size: 12px;
+    color: var(--gray-500);
+    margin-top: 12px;
+    line-height: 1.5;
+  }
+  .form-note svg { vertical-align: middle; margin-right: 4px; }
+
+  /* ===== OFFERS ===== */
+  .offers { background: var(--white); }
+
+  .price-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 32px;
+    margin-bottom: 40px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-200);
+  }
+  .price-table thead th {
+    background: var(--navy);
+    color: var(--white);
+    padding: 16px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+    letter-spacing: 0.3px;
+  }
+  .price-table thead th:last-child { text-align: center; }
+  .price-table tbody tr {
+    transition: var(--transition);
+  }
+  .price-table tbody tr:hover {
+    background: rgba(201,169,110,0.04);
+  }
+  .price-table tbody tr:not(:last-child) td {
+    border-bottom: 1px solid var(--gray-200);
+  }
+  .price-table tbody td {
+    padding: 18px 20px;
+    font-size: 15px;
+    vertical-align: middle;
+  }
+  .price-table .service-name {
+    font-weight: 600;
+    color: var(--navy);
+  }
+  .price-table .service-desc {
+    font-size: 13px;
+    color: var(--gray-500);
+    margin-top: 2px;
+  }
+  .price-original {
+    color: var(--gray-500);
+    text-decoration: line-through;
+    font-size: 14px;
+  }
+  .price-new {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--gold-dark);
+    display: block;
+  }
+  .price-save {
+    display: inline-block;
+    background: rgba(192,57,43,0.08);
+    color: var(--red-urgent);
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+  .price-table .badge-cell {
+    text-align: center;
+  }
+  .badge-limited {
+    display: inline-block;
+    background: var(--navy);
+    color: var(--gold);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  .badge-gift {
+    display: inline-block;
+    background: var(--gold-light);
+    color: var(--gold-dark);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  .offer-cta-row { text-align: center; margin-bottom: 60px; }
+
+  /* ===== IMPLANT ===== */
+  .implant-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: linear-gradient(135deg, var(--implant-light) 0%, #ffffff 100%);
+    border: 1px solid rgba(27,107,90,0.15);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  .implant-img { width: 100%; height: 100%; object-fit: cover; min-height: 380px; }
+  .implant-content { padding: 44px 40px; display: flex; flex-direction: column; justify-content: center; }
+  .implant-label { font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--implant-accent); font-weight: 600; margin-bottom: 10px; }
+  .implant-content h3 { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 700; color: var(--navy); margin-bottom: 4px; line-height: 1.3; }
+  .implant-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--implant-accent);
+    margin: 10px 0 16px;
+  }
+  .implant-content p { font-size: 15px; color: var(--gray-700); line-height: 1.7; margin-bottom: 20px; }
+  .implant-features { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+  .implant-feature { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--navy); font-weight: 500; }
+  .implant-feature-icon { width: 22px; height: 22px; background: var(--implant-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 11px; flex-shrink: 0; }
+
+  /* ===== URGENCY SECTION (Redesigned) ===== */
+  .urgency {
+    background: var(--navy);
+    color: var(--white);
+    text-align: center;
+    position: relative;
+    padding: 70px 24px;
+  }
+  .urgency::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(201,169,110,0.08) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .urgency .section-label { color: var(--gold); }
+  .urgency .section-title { color: var(--white); }
+
+  .urgency-phases {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    max-width: 700px;
+    margin: 40px auto 0;
+  }
+  .urgency-phase {
+    border-radius: 20px;
+    padding: 32px 28px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .phase-active {
+    background: rgba(201,169,110,0.1);
+    border: 2px solid var(--gold);
+  }
+  .phase-active::before {
+    content: 'ĐANG DIỄN RA';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    background: var(--gold);
+    color: var(--navy-deep);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 5px;
+  }
+  .phase-upcoming {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .phase-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+    margin-top: 8px;
+  }
+  .phase-active .phase-icon { margin-top: 18px; }
+  .phase-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+  .phase-date {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    margin: 8px 0;
+  }
+  .phase-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.6;
+  }
+
+  .urgency-note {
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(201,169,110,0.25);
+    border-radius: 16px;
+    padding: 24px 32px;
+    max-width: 650px;
+    margin: 36px auto 0;
+    font-size: 15px;
+    color: var(--gold-light);
+    line-height: 1.8;
+  }
+  .urgency-note strong { color: var(--gold); font-weight: 600; }
+  .urgency-cta { margin-top: 36px; }
+
+  /* ===== TRUST ===== */
+  .trust { background: var(--cream); }
+  .trust-header { text-align: center; margin-bottom: 50px; }
+  .trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 40px; }
+  .trust-item { background: var(--white); border-radius: 20px; padding: 32px 20px; text-align: center; border: 1px solid var(--gray-200); box-shadow: var(--shadow-sm); transition: var(--transition); }
+  .trust-item:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: var(--gold-light); }
+  .trust-icon { width: 60px; height: 60px; border-radius: 50%; background: rgba(201,169,110,0.1); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 26px; border: 1px solid rgba(201,169,110,0.2); }
+  .trust-num { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 700; color: var(--navy); }
+  .trust-label { font-size: 13px; color: var(--gray-500); margin-top: 6px; line-height: 1.5; }
+  .trust-cta { text-align: center; }
+
+  /* ===== TESTIMONIALS ===== */
+  .testimonials { background: var(--white); text-align: center; }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 40px; text-align: left; }
+  .testimonial-card { background: var(--cream); border-radius: 20px; padding: 32px 28px; border: 1px solid var(--gray-200); position: relative; transition: var(--transition); box-shadow: var(--shadow-sm); }
+  .testimonial-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+  .testimonial-card::before { content: '"'; font-family: 'Playfair Display', serif; font-size: 72px; color: rgba(201,169,110,0.15); position: absolute; top: 10px; left: 22px; line-height: 1; }
+  .testimonial-text { font-size: 15px; color: var(--gray-700); line-height: 1.8; margin-top: 12px; font-style: italic; position: relative; z-index: 2; }
+  .testimonial-user { display: flex; align-items: center; gap: 14px; margin-top: 20px; border-top: 1px solid var(--gray-200); padding-top: 16px; }
+  .testi-avatar { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold-light); }
+  .testimonial-author { font-size: 14px; font-weight: 600; color: var(--navy); display: block; }
+  .testimonial-service { font-size: 12px; color: var(--gray-500); }
+
+  /* ===== INLINE FORM (Bottom CTA section) ===== */
+  .form-section {
+    background: linear-gradient(165deg, var(--navy-deep), var(--navy));
+    padding: 80px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .form-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 100%, rgba(201,169,110,0.12) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .form-section-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  .form-section-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 38px);
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1.3;
+    margin-bottom: 16px;
+  }
+  .form-section-text p {
+    color: rgba(255,255,255,0.7);
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 28px;
+  }
+  .form-section-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--gold-light);
+    font-size: 15px;
+  }
+  .contact-row-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(201,169,110,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 18px;
+  }
+  .contact-row a {
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .form-section .hero-form-wrapper {
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+
+  /* ===== FOOTER ===== */
+  .footer-bottom {
+    background: #0a1222;
+    text-align: center;
+    padding: 24px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.35);
+  }
+
+  /* ===== STICKY CTA (Mobile) ===== */
+  .sticky-cta {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background: var(--navy-deep);
+    padding: 12px 20px;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.25);
+    border-top: 1px solid rgba(201,169,110,0.2);
+  }
+  .sticky-cta-inner {
+    display: flex;
+    gap: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .sticky-cta .btn-primary {
+    flex: 1;
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 14px;
+  }
+  .sticky-cta .btn-call {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    background: rgba(255,255,255,0.08);
+    border: 1.5px solid var(--gold);
+    border-radius: 50%;
+    color: var(--gold);
+    font-size: 22px;
+    text-decoration: none;
+    flex-shrink: 0;
+    transition: var(--transition);
+  }
+  .sticky-cta .btn-call:hover { background: var(--gold); color: var(--navy-deep); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 992px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-form-wrapper { max-width: 500px; margin: 0 auto; }
+    .implant-box { grid-template-columns: 1fr; }
+    .implant-img { min-height: 260px; }
+    .urgency-phases { grid-template-columns: 1fr; max-width: 400px; }
+    .form-section-inner { grid-template-columns: 1fr; text-align: center; }
+    .form-section-contact { align-items: center; }
+    .form-section .hero-form-wrapper { max-width: 500px; margin: 0 auto; }
+    .trust-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    .sticky-cta { display: block; }
+    body { padding-bottom: 76px; }
+    .price-table { font-size: 14px; }
+    .price-table thead th { padding: 12px 14px; font-size: 13px; }
+    .price-table tbody td { padding: 14px; }
+    .price-new { font-size: 18px; }
+  }
+
+  @media (max-width: 576px) {
+    .section { padding: 60px 20px; }
+    .hero { padding: 40px 20px 50px; }
+    .hero-stats { flex-direction: column; gap: 16px; }
+    .form-row { grid-template-columns: 1fr; }
+    .hero-form-wrapper { padding: 28px 22px; }
+    .trust-grid { grid-template-columns: 1fr; }
+    .btn-primary, .btn-navy, .btn-implant { width: 100%; text-align: center; }
+    .price-table { display: block; overflow-x: auto; white-space: nowrap; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COUNTDOWN TOPBAR -->
+<div class="topbar" id="topbar">
+  <span class="topbar-text">Ưu đãi tri ân kết thúc sau</span>
+  <div class="countdown" id="countdown">
+    <span class="countdown-unit" id="cd-days">--</span>
+    <span class="countdown-sep">ngày</span>
+    <span class="countdown-unit" id="cd-hours">--</span>
+    <span class="countdown-sep">:</span>
+    <span class="countdown-unit" id="cd-mins">--</span>
+    <span class="countdown-sep">:</span>
+    <span class="countdown-unit" id="cd-secs">--</span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <div class="logo-text">NHA KHOA <span>ĐÔNG NAM</span></div>
+    <a href="#dang-ky" class="header-cta-btn">Đăng ký ưu đãi</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content reveal-left">
+      <div class="hero-badge">Tri Ân 20 Năm Đồng Hành</div>
+      <h1>
+        20 năm tận tâm vì nụ cười Việt
+        <em>Ưu đãi đến 50%</em>
+      </h1>
+      <p class="hero-sub">
+        Hơn 152.000 khách hàng đã tin chọn Nha Khoa Đông Nam. Tháng 4 này, chúng tôi tri ân bằng ưu đãi đặc biệt — chỉ trong thời gian giới hạn.
+      </p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">20+</div>
+          <div class="hero-stat-label">Năm kinh nghiệm</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">152K+</div>
+          <div class="hero-stat-label">Khách hàng</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">10.500+</div>
+          <div class="hero-stat-label">Ca Implant</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LEAD CAPTURE FORM -->
+    <div class="hero-form-wrapper reveal-right" id="dang-ky">
+      <div class="form-header">
+        <div class="form-urgency-badge">Suất ưu đãi có hạn</div>
+        <h3>Đăng ký nhận ưu đãi tri ân</h3>
+        <p>Để lại thông tin — Tư vấn viên sẽ liên hệ xác nhận trong 30 phút</p>
+      </div>
+      <div class="form-group">
+        <label>Họ và tên *</label>
+        <input type="text" placeholder="Nhập họ tên">
+      </div>
+      <div class="form-group">
+        <label>Số điện thoại *</label>
+        <input type="tel" placeholder="0912 345 678">
+      </div>
+      <div class="form-group">
+        <label>Dịch vụ quan tâm</label>
+        <select>
+          <option value="">— Chọn dịch vụ —</option>
+          <option value="tram">Trám răng (Ưu đãi 50%)</option>
+          <option value="nho-khon">Nhổ răng khôn (Ưu đãi 50%)</option>
+          <option value="chua-tuy">Chữa tủy (Voucher 300K)</option>
+          <option value="implant">Implant ETK (Hỗ trợ 20%)</option>
+          <option value="khac">Tư vấn chung</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Cơ sở</label>
+          <select>
+            <option value="pn">Phú Nhuận</option>
+            <option value="q10">Quận 10</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Thời gian mong muốn</label>
+          <select>
+            <option value="">— Chọn —</option>
+            <option value="sang">Buổi sáng</option>
+            <option value="chieu">Buổi chiều</option>
+            <option value="linh-hoat">Linh hoạt</option>
+          </select>
+        </div>
+      </div>
+      <button class="form-submit" type="button">ĐĂNG KÝ NHẬN ƯU ĐÃI →</button>
+      <p class="form-note">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Thông tin được bảo mật. Tư vấn miễn phí, không ràng buộc.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- OFFERS / PRICE TABLE -->
+<section class="section offers" id="uu-dai">
+  <div class="section-inner">
+    <div class="reveal" style="text-align: center;">
+      <div class="section-label">Ưu đãi tri ân tháng 4</div>
+      <h2 class="section-title" style="margin-left: auto; margin-right: auto;">Bảng ưu đãi dịch vụ</h2>
+      <p class="section-desc" style="margin-left: auto; margin-right: auto;">Áp dụng từ 01/04 đến 01/05/2026. Đăng ký trước — ưu đãi được giữ đến 15/05.</p>
+    </div>
+
+    <table class="price-table reveal">
+      <thead>
+        <tr>
+          <th>Dịch vụ</th>
+          <th>Giá thường</th>
+          <th>Giá tri ân</th>
+          <th style="text-align: center;"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="service-name">Trám răng thẩm mỹ</div>
+            <div class="service-desc">Tất cả các loại trám — Composite, GIC</div>
+          </td>
+          <td><span class="price-original">500.000đ — 1.500.000đ</span></td>
+          <td>
+            <span class="price-new">250K — 750K</span>
+            <span class="price-save">Tiết kiệm 50%</span>
+          </td>
+          <td class="badge-cell"><span class="badge-limited">Suất có hạn</span></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Nhổ răng khôn</div>
+            <div class="service-desc">Mọc lệch, mọc ngầm — Chi phí gốc ~2 triệu</div>
+          </td>
+          <td><span class="price-original">~2.000.000đ</span></td>
+          <td>
+            <span class="price-new">~1.000K</span>
+            <span class="price-save">Tiết kiệm 50%</span>
+          </td>
+          <td class="badge-cell"><span class="badge-limited">Suất có hạn</span></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Chữa tủy răng</div>
+            <div class="service-desc">Chữa tủy lần đầu & chữa tủy lại</div>
+          </td>
+          <td><span style="color: var(--gray-500); font-size: 14px;">Theo phác đồ</span></td>
+          <td>
+            <span class="price-new" style="color: var(--gold-dark);">Tặng 300K</span>
+            <span class="badge-gift">Voucher tri ân</span>
+          </td>
+          <td class="badge-cell"></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Cấy ghép Implant ETK</div>
+            <div class="service-desc">Phục hình răng mất vĩnh viễn</div>
+          </td>
+          <td><span style="color: var(--gray-500); font-size: 14px;">Theo trụ & phác đồ</span></td>
+          <td>
+            <span class="price-new" style="color: var(--implant-accent);">Hỗ trợ 20%</span>
+            <span class="price-save" style="background: rgba(27,107,90,0.08); color: var(--implant-accent);">Đặc biệt</span>
+          </td>
+          <td class="badge-cell"><span class="badge-limited">Suất có hạn</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="offer-cta-row reveal">
+      <a href="#dang-ky" class="btn-navy">Đăng ký nhận ưu đãi này →</a>
+    </div>
+
+    <!-- IMPLANT HIGHLIGHT -->
+    <div class="implant-box reveal">
+      <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80" alt="Trồng răng Implant" class="implant-img" loading="lazy">
+      <div class="implant-content">
+        <div class="implant-label">Dịch vụ trọng điểm</div>
+        <h3>Cấy ghép Implant ETK</h3>
+        <div class="implant-price">Hỗ trợ chi phí 20%</div>
+        <p>Giải pháp phục hình bền vững — thay thế răng mất vĩnh viễn. 20+ năm tiên phong trong cấy ghép Implant tại Việt Nam.</p>
+        <div class="implant-features">
+          <div class="implant-feature">
+            <div class="implant-feature-icon">✓</div>
+            Bác sĩ chuyên sâu Implant 20+ năm
+          </div>
+          <div class="implant-feature">
+            <div class="implant-feature-icon">✓</div>
+            Công nghệ định vị Navident
+          </div>
+          <div class="implant-feature">
+            <div class="implant-feature-icon">✓</div>
+            10.500+ ca thành công
+          </div>
+        </div>
+        <div>
+          <a href="#dang-ky" class="btn-implant">Tư vấn Implant miễn phí →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- URGENCY (Redesigned - No internal timeline) -->
+<section class="urgency" id="thoi-han">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Thời hạn ưu đãi</div>
+      <h2 class="section-title">Chương trình chỉ áp dụng trong thời gian giới hạn</h2>
+    </div>
+
+    <div class="urgency-phases reveal">
+      <div class="urgency-phase phase-active">
+        <div class="phase-icon">⭐</div>
+        <div class="phase-title">Đăng ký ưu đãi</div>
+        <div class="phase-date">01/04 — 01/05</div>
+        <div class="phase-desc">Đăng ký trong thời gian này để nhận ưu đãi tri ân. Suất có hạn.</div>
+      </div>
+      <div class="urgency-phase phase-upcoming">
+        <div class="phase-icon">🔒</div>
+        <div class="phase-title">Giữ chỗ cho bạn</div>
+        <div class="phase-date">Đến 15/05</div>
+        <div class="phase-desc">Đã đăng ký? Ưu đãi được giữ thêm 2 tuần để bạn sắp xếp lịch khám.</div>
+      </div>
+    </div>
+
+    <div class="urgency-note reveal">
+      <strong>Bận chưa đến ngay được?</strong> Chỉ cần đăng ký trước 01/05 — ưu đãi tri ân sẽ được giữ đến <strong>15/05/2026</strong>. Bạn hoàn toàn chủ động thời gian.
+    </div>
+
+    <div class="urgency-cta reveal">
+      <a href="#dang-ky" class="btn-primary">Đăng ký giữ suất ngay →</a>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="section trust">
+  <div class="section-inner">
+    <div class="trust-header reveal">
+      <div class="section-label">Vì sao tin chọn Đông Nam</div>
+      <h2 class="section-title">20 năm — Một hành trình đồng hành</h2>
+    </div>
+    <div class="trust-grid">
+      <div class="trust-item reveal" style="transition-delay: 0.1s;">
+        <div class="trust-icon">🏥</div>
+        <div class="trust-num">20+</div>
+        <div class="trust-label">Năm hoạt động liên tục</div>
+      </div>
+      <div class="trust-item reveal" style="transition-delay: 0.2s;">
+        <div class="trust-icon">👨‍⚕️</div>
+        <div class="trust-num">152.000+</div>
+        <div class="trust-label">Khách hàng tin chọn</div>
+      </div>
+      <div class="trust-item reveal" style="transition-delay: 0.3s;">
+        <div class="trust-icon">🦷</div>
+        <div class="trust-num">10.500+</div>
+        <div class="trust-label">Ca Implant thành công</div>
+      </div>
+      <div class="trust-item reveal" style="transition-delay: 0.4s;">
+        <div class="trust-icon">📋</div>
+        <div class="trust-num">2</div>
+        <div class="trust-label">Giấy phép Bộ Y tế</div>
+      </div>
+    </div>
+    <div class="trust-cta reveal">
+      <a href="#dang-ky" class="btn-navy">Đăng ký nhận ưu đãi →</a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testimonials">
+  <div class="section-inner">
+    <div class="reveal" style="text-align: center;">
+      <div class="section-label">Khách hàng chia sẻ</div>
+      <h2 class="section-title" style="margin-left: auto; margin-right: auto;">Những nụ cười tin chọn Đông Nam</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal" style="transition-delay: 0.1s;">
+        <p class="testimonial-text">Ban đầu tôi lo lắm, cứ nghĩ cấy ghép phải đau đớn, phức tạp. Nhưng đặt trụ nhanh chóng, Bác sĩ làm rất nhẹ nhàng.</p>
+        <div class="testimonial-user">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80" alt="" class="testi-avatar" loading="lazy">
+          <div>
+            <span class="testimonial-author">Khách hàng Implant</span>
+            <span class="testimonial-service">Cấy ghép Implant</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal" style="transition-delay: 0.2s;">
+        <p class="testimonial-text">Cô rất an tâm khi trồng răng Implant tại Đông Nam. Và cô sẽ tiếp tục tới nữa để làm hàm trên.</p>
+        <div class="testimonial-user">
+          <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=100&q=80" alt="" class="testi-avatar" loading="lazy">
+          <div>
+            <span class="testimonial-author">Khách hàng lâu năm</span>
+            <span class="testimonial-service">Trồng răng Implant</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal" style="transition-delay: 0.3s;">
+        <p class="testimonial-text">Sau 5 năm làm Implant, mình vẫn nhai tốt, nhai cả sụn ấy, không khác gì răng thật!</p>
+        <div class="testimonial-user">
+          <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=100&q=80" alt="" class="testi-avatar" loading="lazy">
+          <div>
+            <span class="testimonial-author">Khách hàng 5 năm</span>
+            <span class="testimonial-service">Implant — Theo dõi dài hạn</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM FORM + CONTACT -->
+<section class="form-section" id="lien-he">
+  <div class="form-section-inner">
+    <div class="form-section-text reveal-left">
+      <h2>Đừng bỏ lỡ ưu đãi tri ân 20 năm</h2>
+      <p>Chương trình kết thúc 01/05/2026. Đăng ký ngay để được tư vấn miễn phí và giữ suất ưu đãi.</p>
+      <div class="form-section-contact">
+        <div class="contact-row">
+          <div class="contact-row-icon">📞</div>
+          <div>Tổng đài: <a href="tel:19007141">1900.7141</a></div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-row-icon">📱</div>
+          <div>Hotline: <a href="tel:0972411411">0972.411.411</a></div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-row-icon">📍</div>
+          <div style="font-size: 14px; line-height: 1.6;">
+            CS1: 411 Nguyễn Kiệm, P.9, Phú Nhuận<br>
+            CS2: 781/B1 Lê Hồng Phong, P.12, Q.10
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-row-icon">🕐</div>
+          <div>8:00 — 20:00 (Cả CN & Lễ)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-form-wrapper reveal-right">
+      <div class="form-header">
+        <div class="form-urgency-badge">Suất ưu đãi có hạn</div>
+        <h3>Đăng ký nhận ưu đãi</h3>
+        <p>Tư vấn viên liên hệ xác nhận trong 30 phút</p>
+      </div>
+      <div class="form-group">
+        <label>Họ và tên *</label>
+        <input type="text" placeholder="Nhập họ tên">
+      </div>
+      <div class="form-group">
+        <label>Số điện thoại *</label>
+        <input type="tel" placeholder="0912 345 678">
+      </div>
+      <div class="form-group">
+        <label>Dịch vụ quan tâm</label>
+        <select>
+          <option value="">— Chọn dịch vụ —</option>
+          <option value="tram">Trám răng (Ưu đãi 50%)</option>
+          <option value="nho-khon">Nhổ răng khôn (Ưu đãi 50%)</option>
+          <option value="chua-tuy">Chữa tủy (Voucher 300K)</option>
+          <option value="implant">Implant ETK (Hỗ trợ 20%)</option>
+          <option value="khac">Tư vấn chung</option>
+        </select>
+      </div>
+      <button class="form-submit" type="button">ĐĂNG KÝ NHẬN ƯU ĐÃI →</button>
+      <p class="form-note">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Bảo mật thông tin. Tư vấn miễn phí, không ràng buộc.
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="footer-bottom">
+  © 2026 Nha Khoa Đông Nam — GP hoạt động: 03708/SYT-GPHĐ & 01672/HCM-GPHĐ
+</div>
+
+<!-- STICKY CTA MOBILE -->
+<div class="sticky-cta">
+  <div class="sticky-cta-inner">
+    <a href="#dang-ky" class="btn-primary">Đăng ký ưu đãi →</a>
+    <a href="tel:19007141" class="btn-call">📞</a>
+  </div>
+</div>
+
+<!-- SCRIPTS -->
+<script>
+  // === COUNTDOWN TO 01/05/2026 ===
+  (function() {
+    const deadline = new Date('2026-05-01T00:00:00+07:00').getTime();
+    const daysEl = document.getElementById('cd-days');
+    const hoursEl = document.getElementById('cd-hours');
+    const minsEl = document.getElementById('cd-mins');
+    const secsEl = document.getElementById('cd-secs');
+
+    function update() {
+      const now = Date.now();
+      const diff = deadline - now;
+      if (diff <= 0) {
+        daysEl.textContent = '00';
+        hoursEl.textContent = '00';
+        minsEl.textContent = '00';
+        secsEl.textContent = '00';
+        document.getElementById('topbar').querySelector('.topbar-text').textContent = 'Chương trình đã kết thúc';
+        return;
+      }
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff % 86400000) / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+      daysEl.textContent = String(d).padStart(2, '0');
+      hoursEl.textContent = String(h).padStart(2, '0');
+      minsEl.textContent = String(m).padStart(2, '0');
+      secsEl.textContent = String(s).padStart(2, '0');
+    }
+    update();
+    setInterval(update, 1000);
+  })();
+
+  // === SCROLL REVEAL ===
+  document.addEventListener("DOMContentLoaded", function() {
+    const reveals = document.querySelectorAll(".reveal, .reveal-left, .reveal-right");
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: "0px 0px -50px 0px" });
+    reveals.forEach(el => observer.observe(el));
+  });
+</script>
+
+</body>
+</html>
