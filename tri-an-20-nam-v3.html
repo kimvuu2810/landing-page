@@ -793,6 +793,15 @@
   .carousel-btn.next { right: 0; }
   .carousel-text { padding: 16px 12px; font-weight: 700; color: white; background: var(--implant-accent); font-size: 14px; text-transform: uppercase; }
 
+  /* ===== VIDEO TESTIMONIALS ===== */
+  .video-testimonials { background: var(--white); padding: 80px 24px; }
+  .video-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto; }
+  .video-item { position: relative; width: 100%; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-md); aspect-ratio: 9/16; background: #000; transition: var(--transition); border: 4px solid var(--cream); }
+  .video-item:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.15); border-color: var(--gold); }
+  .video-item iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+  @media (max-width: 992px) { .video-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; } }
+  @media (max-width: 480px) { .video-grid { grid-template-columns: 1fr; gap: 30px; max-width: 320px; } }
+
   /* ===== INLINE FORM (Bottom CTA section) ===== */
   .form-section {
     background: linear-gradient(165deg, var(--navy-deep), var(--navy));
@@ -1384,6 +1393,33 @@
             <p>Bác sĩ tư vấn chi tiết về tình trạng răng, lựa chọn phương án tối ưu. Mọi chi phí đều minh bạch, không phát sinh, phù hợp với nhu cầu tài chính.</p>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO TESTIMONIALS -->
+<section class="section video-testimonials">
+  <div class="section-inner">
+    <div class="reveal" style="text-align: center; margin-bottom: 50px;">
+      <h2 class="section-title" style="margin-left: auto; margin-right: auto; text-transform: uppercase; color: var(--navy); font-size: clamp(24px, 4vw, 36px); font-family: 'Be Vietnam Pro', sans-serif;">KHÁCH HÀNG NÓI GÌ SAU KHI ĐIỀU TRỊ TẠI ĐÔNG NAM?</h2>
+    </div>
+    <div class="video-grid reveal">
+      <!-- Video 1 -->
+      <div class="video-item" style="transition-delay: 0.1s;">
+        <iframe src="https://www.youtube.com/embed/PoNe7n2yVEQ" title="Khách hàng 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <!-- Video 2 -->
+      <div class="video-item" style="transition-delay: 0.2s;">
+        <iframe src="https://www.youtube.com/embed/eblVhYpRay8" title="Khách hàng 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <!-- Video 3 -->
+      <div class="video-item" style="transition-delay: 0.3s;">
+        <iframe src="https://www.youtube.com/embed/rQkbBt-CciA" title="Khách hàng 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <!-- Video 4 -->
+      <div class="video-item" style="transition-delay: 0.4s;">
+        <iframe src="https://www.youtube.com/embed/WBPU55A7D0E" title="Khách hàng 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
       </div>
     </div>
   </div>
