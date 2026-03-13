@@ -298,69 +298,132 @@
   .pain-point-inner {
     max-width: 1100px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
   }
-  .pain-point-header { margin-bottom: 32px; }
+  /* Header row */
+  .pain-point-header {
+    text-align: center;
+    margin-bottom: 12px;
+  }
   .pain-point-label {
     font-size: 11px;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: var(--red-urgent);
+    color: var(--gold-dark);
     font-weight: 700;
     margin-bottom: 10px;
   }
   .pain-point-title {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(22px, 3vw, 30px);
+    font-size: clamp(22px, 3vw, 32px);
     font-weight: 700;
     color: var(--navy);
     line-height: 1.3;
+    margin-left: auto; margin-right: auto;
+    max-width: 700px;
   }
-  .pain-list { display: flex; flex-direction: column; gap: 18px; }
-  .pain-item {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-    padding: 16px 18px;
-    border-radius: 14px;
-    background: var(--gray-100);
-    border-left: 3px solid transparent;
+  .pain-point-sub {
+    font-size: 15px;
+    color: var(--gray-500);
+    max-width: 680px;
+    margin: 10px auto 44px;
+    line-height: 1.7;
+    text-align: center;
+  }
+  /* Card row */
+  .service-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .service-card {
+    background: var(--cream);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--gray-200);
+    box-shadow: var(--shadow-sm);
     transition: var(--transition);
+    display: flex;
+    flex-direction: column;
   }
-  .pain-item:hover { border-left-color: var(--red-urgent); background: var(--red-light); transform: translateX(4px); }
-  .pain-icon {
-    width: 40px; height: 40px; min-width: 40px;
-    border-radius: 50%;
-    background: rgba(192,57,43,0.08);
+  .service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+  /* Image area */
+  .service-card-img-wrap {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+  }
+  .service-card-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .service-card:hover .service-card-img { transform: scale(1.05); }
+  .service-card-img-placeholder {
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, #dde8f0 0%, #c5d8e8 100%);
     display: flex; align-items: center; justify-content: center;
-    font-size: 18px;
+    font-size: 13px; color: rgba(27,42,74,0.4);
+    flex-direction: column; gap: 8px;
   }
-  .pain-item-title { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 3px; }
-  .pain-item-desc { font-size: 13px; color: var(--gray-500); line-height: 1.6; }
-  .pain-point-right { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .pain-card {
-    border-radius: 18px; overflow: hidden;
-    box-shadow: var(--shadow-sm); transition: var(--transition);
-    background: var(--cream); border: 1px solid var(--gray-200);
+  .service-card-img-placeholder svg { opacity: 0.4; }
+  /* Icon badge bottom-right of image */
+  .service-card-badge {
+    position: absolute;
+    bottom: -18px; right: 18px;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 2px solid var(--gray-200);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    box-shadow: var(--shadow-sm);
+    z-index: 2;
   }
-  .pain-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
-  .pain-card-img { width: 100%; height: 150px; object-fit: cover; }
-  .pain-card-img-placeholder {
-    width: 100%; height: 150px;
-    background: linear-gradient(135deg, #e8f5f0, #d1ece4);
-    display: flex; align-items: center; justify-content: center; font-size: 32px;
+  /* Card body */
+  .service-card-body {
+    padding: 28px 20px 22px;
+    flex: 1;
+    display: flex; flex-direction: column;
   }
-  .pain-card-body { padding: 14px 16px; }
-  .pain-card-title { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 6px; line-height: 1.4; }
-  .pain-card-desc { font-size: 12px; color: var(--gray-500); line-height: 1.6; }
-  .pain-card-btn {
-    display: inline-block; margin-top: 8px;
-    font-size: 11px; font-weight: 700; color: var(--implant-accent);
-    text-decoration: none; letter-spacing: 0.5px; text-transform: uppercase;
+  .service-card-category {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--implant-accent);
+    margin-bottom: 8px;
   }
+  .service-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.35;
+    margin-bottom: 10px;
+  }
+  .service-card-desc {
+    font-size: 13px;
+    color: var(--gray-500);
+    line-height: 1.7;
+    flex: 1;
+    margin-bottom: 16px;
+  }
+  .service-card-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    text-decoration: none;
+    border: 1.5px solid var(--navy);
+    padding: 9px 18px;
+    border-radius: 50px;
+    transition: var(--transition);
+    width: fit-content;
+  }
+  .service-card-btn:hover { background: var(--navy); color: var(--white); }
 
   /* ===== LEAD FORM ===== */
   .hero-form-wrapper {
@@ -935,79 +998,84 @@
 <!-- PAIN POINT: ĐỪNG ĐỂ NHỮNG NỖI LO RĂNG MIỆNG CẢN TRỞ NIỀM VUI NGÀY LỄ -->
 <section class="pain-point" id="noi-lo">
   <div class="pain-point-inner">
-    <!-- Bên trái: Text + danh sách nỗi đau -->
-    <div>
-      <div class="pain-point-header reveal">
-        <div class="pain-point-label">Nhận ra vấn đề của bạn?</div>
-        <h2 class="pain-point-title">Đừng để những nỗi lo răng miệng cản trở niềm vui ngày lễ</h2>
-      </div>
-      <div class="pain-list">
-        <div class="pain-item reveal" style="transition-delay:0.05s">
-          <div class="pain-icon">🦷</div>
-          <div class="pain-item-content">
-            <div class="pain-item-title">Mất răng lâu năm</div>
-            <div class="pain-item-desc">Ăn uống khó khăn, tiêu xương hàm khiến gương mặt lão hóa sớm.</div>
-          </div>
-        </div>
-        <div class="pain-item reveal" style="transition-delay:0.1s">
-          <div class="pain-icon">😬</div>
-          <div class="pain-item-content">
-            <div class="pain-item-title">Răng sâu, mẻ</div>
-            <div class="pain-item-desc">Đau nhức âm ỉ, mất tự tin khi giao tiếp.</div>
-          </div>
-        </div>
-        <div class="pain-item reveal" style="transition-delay:0.15s">
-          <div class="pain-icon">⚠️</div>
-          <div class="pain-item-content">
-            <div class="pain-item-title">Răng khôn mọc lệch</div>
-            <div class="pain-item-desc">Gây sưng tấy, viêm nhiễm và đe dọa sức khỏe của các răng lân cận.</div>
-          </div>
-        </div>
-        <div class="pain-item reveal" style="transition-delay:0.2s">
-          <div class="pain-icon">🔥</div>
-          <div class="pain-item-content">
-            <div class="pain-item-title">Viêm tủy</div>
-            <div class="pain-item-desc">Những cơn đau dữ dội, ảnh hưởng trực tiếp đến giấc ngủ và hiệu suất công việc.</div>
-          </div>
-        </div>
-      </div>
+    <div class="pain-point-header reveal">
+      <div class="pain-point-label">Giải pháp cho bạn</div>
+      <h2 class="pain-point-title">Đừng để những nỗi lo răng miệng cản trở niềm vui ngày lễ</h2>
     </div>
+    <p class="pain-point-sub reveal">Nha Khoa Đông Nam cung cấp đa dạng dịch vụ với quy trình nhanh chóng, điều trị trực tiếp cùng bác sĩ chuyên khoa — ưu đãi đặc biệt dịp 30/4:</p>
 
-    <!-- Bên phải: 4 thẻ dịch vụ -->
-    <!-- HƯỚNG DẪN: Thay .pain-card-img-placeholder bằng <img src="..." class="pain-card-img"> khi có ảnh -->
-    <div class="pain-point-right">
-      <div class="pain-card reveal" style="transition-delay:0.1s">
-        <div class="pain-card-img-placeholder">🦷</div>
-        <div class="pain-card-body">
-          <div class="pain-card-title">Nhổ răng khôn an toàn</div>
-          <div class="pain-card-desc">Công nghệ X-quang 3D, ít đau, lành thương nhanh. Ưu đãi -50%.</div>
-          <a href="#dang-ky" class="pain-card-btn">Tìm hiểu thêm →</a>
+    <!-- Service card row — 4 cards ngang -->
+    <!-- HƯỚNG DẪN: Thay .service-card-img-placeholder bằng <img src="..." class="service-card-img"> khi có ảnh thật -->
+    <div class="service-cards">
+
+      <!-- Card 1: Nha khoa trẻ em / Trám răng -->
+      <div class="service-card reveal" style="transition-delay:0.05s">
+        <div class="service-card-img-wrap">
+          <div class="service-card-img-placeholder">
+            <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            <span>Ảnh dịch vụ</span>
+          </div>
+          <div class="service-card-badge">🦷</div>
+        </div>
+        <div class="service-card-body">
+          <div class="service-card-category">Trám răng thẩm mỹ</div>
+          <div class="service-card-title">Giải pháp khắc phục răng sâu, mẻ, ố vàng</div>
+          <div class="service-card-desc">Trám răng thẩm mỹ bằng Composite cao cấp, phục hồi hình dáng và màu sắc tự nhiên. Chấm dứt cơn đau nhức, lấy lại tự tin khi giao tiếp. <strong>Ưu đãi -50%.</strong></div>
+          <a href="#dang-ky" class="service-card-btn">Tìm hiểu thêm →</a>
         </div>
       </div>
-      <div class="pain-card reveal" style="transition-delay:0.15s">
-        <div class="pain-card-img-placeholder">😄</div>
-        <div class="pain-card-body">
-          <div class="pain-card-title">Nhổ răng khôn</div>
-          <div class="pain-card-desc">Bác sĩ chuyên sâu, môi trường vô khuẩn chuẩn quốc tế.</div>
-          <a href="#dang-ky" class="pain-card-btn">Tìm hiểu thêm →</a>
+
+      <!-- Card 2: Nhổ răng khôn -->
+      <div class="service-card reveal" style="transition-delay:0.1s">
+        <div class="service-card-img-wrap">
+          <div class="service-card-img-placeholder">
+            <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            <span>Ảnh dịch vụ</span>
+          </div>
+          <div class="service-card-badge">😊</div>
+        </div>
+        <div class="service-card-body">
+          <div class="service-card-category">Nhổ răng khôn</div>
+          <div class="service-card-title">Giải pháp khắc phục các vấn đề do răng khôn</div>
+          <div class="service-card-desc">Chuyên khoa phẫu thuật nha với bác sĩ giỏi và công nghệ hiện đại. Xử lý răng khôn lệch, mọc ngầm gây đau nhức, kiểm soát tình trạng viêm nhiễm. <strong>Ưu đãi -50%.</strong></div>
+          <a href="#dang-ky" class="service-card-btn">Tìm hiểu thêm →</a>
         </div>
       </div>
-      <div class="pain-card reveal" style="transition-delay:0.2s">
-        <div class="pain-card-img-placeholder">🏥</div>
-        <div class="pain-card-body">
-          <div class="pain-card-title">Điều trị tủy răng</div>
-          <div class="pain-card-desc">Chấm dứt cơn đau nhanh chóng. Voucher tặng 300.000đ cho lần đầu.</div>
-          <a href="#dang-ky" class="pain-card-btn">Tìm hiểu thêm →</a>
+
+      <!-- Card 3: Chữa tủy -->
+      <div class="service-card reveal" style="transition-delay:0.15s">
+        <div class="service-card-img-wrap">
+          <div class="service-card-img-placeholder">
+            <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            <span>Ảnh dịch vụ</span>
+          </div>
+          <div class="service-card-badge">🏥</div>
+        </div>
+        <div class="service-card-body">
+          <div class="service-card-category">Điều trị tủy răng</div>
+          <div class="service-card-title">Chữa tủy răng sớm để tránh nhổ bỏ răng</div>
+          <div class="service-card-desc">Điều trị tủy răng bị tổn thương chuẩn y khoa, giúp ngăn ngừa tình trạng nhiễm trùng và chấm dứt các cơn đau nhức khó chịu. <strong>Tặng voucher 300.000đ.</strong></div>
+          <a href="#dang-ky" class="service-card-btn">Tìm hiểu thêm →</a>
         </div>
       </div>
-      <div class="pain-card reveal" style="transition-delay:0.25s">
-        <div class="pain-card-img-placeholder">✨</div>
-        <div class="pain-card-body">
-          <div class="pain-card-title">Cấy ghép Implant</div>
-          <div class="pain-card-desc">Phục hồi răng mất vĩnh viễn. Hỗ trợ chi phí -20% dịp lễ.</div>
-          <a href="#dang-ky" class="pain-card-btn">Tìm hiểu thêm →</a>
+
+      <!-- Card 4: Implant -->
+      <div class="service-card reveal" style="transition-delay:0.2s">
+        <div class="service-card-img-wrap">
+          <div class="service-card-img-placeholder">
+            <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            <span>Ảnh dịch vụ</span>
+          </div>
+          <div class="service-card-badge">✨</div>
+        </div>
+        <div class="service-card-body">
+          <div class="service-card-category">Cấy ghép Implant</div>
+          <div class="service-card-title">Trồng răng Implant vĩnh viễn như răng thật</div>
+          <div class="service-card-desc">Quan trọng là phục hồi răng mất, hạn chế phải nhổ bỏ răng that do bị hư tủy. Giải pháp tối ưu, bền vững, ăn nhai tốt như răng tự nhiên. <strong>Hỗ trợ -20%.</strong></div>
+          <a href="#dang-ky" class="service-card-btn">Tìm hiểu thêm →</a>
         </div>
       </div>
+
     </div>
   </div>
 </section>
