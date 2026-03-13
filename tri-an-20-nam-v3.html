@@ -815,6 +815,21 @@
   @media (max-width: 992px) { .press-item { flex: 0 0 calc(50% - 15px); } }
   @media (max-width: 768px) { .press-item { flex: 0 0 85%; height: 400px; } }
 
+  /* ===== FAQ (Accordion) ===== */
+  .faq { background: var(--white); padding: 80px 24px; }
+  .faq-header { max-width: 800px; margin: 0 auto 50px; text-align: center; }
+  .faq-header h2 { font-family: 'Be Vietnam Pro', sans-serif; font-size: clamp(24px, 4vw, 36px); color: var(--navy); text-transform: uppercase; margin-bottom: 20px; }
+  .faq-list { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+  .faq-item { border: 1px solid var(--gray-200); border-radius: 12px; overflow: hidden; background: var(--cream); transition: var(--transition); }
+  .faq-question { width: 100%; text-align: left; padding: 20px 24px; background: none; border: none; font-size: 16px; font-weight: 700; color: var(--navy); display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: color 0.3s; font-family: 'Be Vietnam Pro', sans-serif;}
+  .faq-question:hover { color: var(--gold); }
+  .faq-icon { font-size: 24px; font-weight: 300; transition: transform 0.3s ease; display: inline-block; }
+  .faq-item.active .faq-icon { transform: rotate(45deg); }
+  .faq-item.active { border-color: var(--gold); box-shadow: var(--shadow-sm); }
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; padding: 0 24px; }
+  .faq-item.active .faq-answer { max-height: 500px; padding: 0 24px 20px 24px; }
+  .faq-answer p { font-size: 15px; color: var(--gray-700); line-height: 1.6; margin: 0; }
+
   /* ===== INLINE FORM (Bottom CTA section) ===== */
   .form-section {
     background: linear-gradient(165deg, var(--navy-deep), var(--navy));
@@ -1470,6 +1485,107 @@
   </div>
 </section>
 
+<!-- FAQ SECTION -->
+<section class="section faq">
+  <div class="section-inner">
+    <div class="faq-header reveal">
+      <h2 class="section-title">Câu Hỏi Thường Gặp</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>1. Trồng răng Implant có đau không?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Quá trình cấy ghép Implant được thực hiện dưới gây tê nên khách hàng hầu như không cảm thấy đau. Sau khi điều trị, bác sĩ sẽ hướng dẫn chăm sóc và kê thuốc phù hợp để giúp quá trình hồi phục diễn ra nhẹ nhàng.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>2. Implant ETK Active của Pháp có ưu điểm gì?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Implant ETK Active là dòng trụ Implant đến từ Pháp, nổi bật với khả năng tích hợp xương tốt, độ ổn định cao, rút ngắn thời gian điều trị trong 3 - 4 tuần, tuổi thọ lâu dài. Đây là một trong những dòng Implant được nhiều bác sĩ lựa chọn trong điều trị mất răng.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>3. Nhổ răng khôn có nguy hiểm không?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Nhổ răng khôn là một tiểu phẫu phổ biến trong nha khoa. Khi được thực hiện bởi bác sĩ có kinh nghiệm và với sự hỗ trợ của các thiết bị hiện đại, quá trình nhổ răng sẽ diễn ra an toàn và hạn chế đau nhức.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>4. Trám răng sâu có bền không?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Trám răng bằng vật liệu thẩm mỹ có thể duy trì nhiều năm nếu được thực hiện đúng kỹ thuật và chăm sóc răng miệng tốt. Bác sĩ sẽ lựa chọn vật liệu phù hợp để đảm bảo độ bền và thẩm mỹ.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>5. Điều trị tủy răng có cần bọc răng sứ không?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Sau khi điều trị tủy, răng thường trở nên giòn hơn. Trong nhiều trường hợp, bác sĩ sẽ khuyến nghị bọc răng sứ để bảo vệ răng và giúp răng hoạt động bền vững hơn khi ăn nhai.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>6. Tôi cần bao lâu để hoàn tất quá trình trồng răng Implant?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Thời gian điều trị Implant thường kéo dài từ vài tuần đến vài tháng, tùy thuộc vào tình trạng xương hàm và kế hoạch điều trị của từng khách hàng. Bác sĩ sẽ tư vấn lộ trình cụ thể sau khi thăm khám.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>7. Chi phí điều trị có phát sinh thêm không?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Tại Nha khoa Đông Nam, khách hàng sẽ được bác sĩ tư vấn chi tiết về tình trạng răng và thông báo chi phí trước khi điều trị. Phòng khám luôn minh bạch về chi phí để khách hàng chủ động lựa chọn.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>8. Chương trình ưu đãi dịp 30/4 – 1/5 áp dụng như thế nào?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Chương trình áp dụng cho các dịch vụ trong thời gian khuyến mãi. Khách hàng đăng ký và đặt lịch trong thời gian này sẽ được hưởng mức ưu đãi theo chương trình.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>9. Tôi cần đặt lịch trước khi đến khám không?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Khách hàng nên đặt lịch trước để phòng khám sắp xếp thời gian thăm khám và tư vấn thuận tiện nhất.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>10. Làm thế nào để đăng ký nhận ưu đãi?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Khách hàng chỉ cần điền thông tin vào form đăng ký trên trang hoặc liên hệ trực tiếp với phòng khám để được tư vấn và giữ suất ưu đãi.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <div class="footer-bottom">
   © 2026 Nha Khoa Đông Nam — GP hoạt động: 03708/SYT-GPHĐ & 01672/HCM-GPHĐ
 </div>
@@ -1545,6 +1661,20 @@
         track.scrollBy({ left: slideWidth, behavior: 'smooth' });
       });
     }
+
+    // === ACCORDION FAQ ===
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      question.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        faqItems.forEach(i => i.classList.remove('active')); // close others
+        if (!isActive) {
+          item.classList.add('active');
+        }
+      });
+    });
+
   });
 </script>
 
