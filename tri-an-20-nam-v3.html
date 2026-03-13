@@ -857,14 +857,22 @@
 
   /* ===== CAROUSEL (HIỆU QUẢ ĐIỀU TRỊ) ===== */
   .carousel { background: var(--white); text-align: center; }
-  .carousel-track { display: flex; gap: 24px; overflow-x: auto; padding-bottom: 24px; scrollbar-width: none; -ms-overflow-style: none; scroll-snap-type: x mandatory; margin-top: 40px; }
+  .carousel-track { display: flex; gap: 24px; overflow-x: auto; padding-bottom: 24px; scrollbar-width: none; -ms-overflow-style: none; scroll-snap-type: x mandatory; margin-top: 0; }
   .carousel-track::-webkit-scrollbar { display: none; }
   .carousel-slide { flex: 0 0 calc(25% - 18px); scroll-snap-align: start; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--gray-200); background: var(--cream); transition: var(--transition); }
   .carousel-slide:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: rgba(27,107,90,0.3); }
   @media (max-width: 992px) { .carousel-slide { flex: 0 0 calc(33.333% - 16px); } }
-  @media (max-width: 768px) { .carousel-slide { flex: 0 0 calc(50% - 12px); } }
+  @media (max-width: 768px) { .carousel-slide { flex: 0 0 calc(50% - 12px); } .carousel-wrapper { padding: 0 50px; } }
   @media (max-width: 480px) { .carousel-slide { flex: 0 0 calc(85%); } }
-  .carousel-slide img { width: 100%; height: 260px; object-fit: cover; display: block; border-bottom: 3px solid var(--implant-accent); }
+  .carousel-slide img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; border-bottom: 3px solid var(--implant-accent); }
+  .carousel-text { padding: 16px 12px; font-weight: 700; color: white; background: var(--implant-accent); font-size: 14px; text-transform: uppercase; }
+  
+  /* Carousel Controls */
+  .carousel-wrapper { position: relative; max-width: 1200px; margin: 40px auto 0; padding: 0 60px; }
+  .carousel-btn { position: absolute; top: calc(50% - 12px); transform: translateY(-50%); width: 44px; height: 44px; background: var(--white); border: 1px solid var(--gray-200); border-radius: 50%; color: var(--navy); font-size: 16px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: var(--shadow-sm); z-index: 10; transition: var(--transition); }
+  .carousel-btn:hover { background: var(--navy); color: var(--white); border-color: var(--navy); box-shadow: var(--shadow-md); }
+  .carousel-btn.prev { left: 0; }
+  .carousel-btn.next { right: 0; }
   .carousel-text { padding: 16px 12px; font-weight: 700; color: white; background: var(--implant-accent); font-size: 14px; text-transform: uppercase; }
 
   /* ===== INLINE FORM (Bottom CTA section) ===== */
@@ -1410,31 +1418,37 @@
       <div class="section-label">Hình ảnh khách hàng trồng răng Implant</div>
       <h2 class="section-title" style="margin-left: auto; margin-right: auto; text-transform: uppercase;">Hiệu quả điều trị qua những trường hợp thực tế</h2>
     </div>
-    <div class="carousel-track reveal" style="transition-delay: 0.1s;">
-      <!-- Slide 1 -->
-      <div class="carousel-slide">
-        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&h=300&q=80" alt="Khách hàng 1" loading="lazy">
-        <div class="carousel-text">KH. NGUYỄN TỬ HOÀN</div>
-      </div>
-      <!-- Slide 2 -->
-      <div class="carousel-slide">
-        <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=400&h=300&q=80" alt="Khách hàng 2" loading="lazy">
-        <div class="carousel-text">KH. ĐẶNG THỊ PHƯƠNG ANH</div>
-      </div>
-      <!-- Slide 3 -->
-      <div class="carousel-slide">
-        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&h=300&q=80" alt="Khách hàng 3" loading="lazy">
-        <div class="carousel-text">KH. TRẦN ĐỨC VŨ</div>
-      </div>
-      <!-- Slide 4 -->
-      <div class="carousel-slide">
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&h=300&q=80" alt="Khách hàng 4" loading="lazy">
-        <div class="carousel-text">KH. LÊ THỊ MỸ</div>
-      </div>
-      <!-- Slide 5 -->
-      <div class="carousel-slide">
-        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&h=300&q=80" alt="Khách hàng 5" loading="lazy">
-        <div class="carousel-text">KH. HOÀNG VĂN TÂM</div>
+    
+    <div class="carousel-wrapper reveal" style="transition-delay: 0.1s;">
+      <button class="carousel-btn prev" aria-label="Previous">❮</button>
+      <button class="carousel-btn next" aria-label="Next">❯</button>
+      
+      <div class="carousel-track" id="carouselTrack">
+        <!-- Slide 1 -->
+        <div class="carousel-slide">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&h=300&q=80" alt="Khách hàng 1" loading="lazy">
+          <div class="carousel-text">KH. NGUYỄN TỬ HOÀN</div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="carousel-slide">
+          <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=400&h=300&q=80" alt="Khách hàng 2" loading="lazy">
+          <div class="carousel-text">KH. ĐẶNG THỊ PHƯƠNG ANH</div>
+        </div>
+        <!-- Slide 3 -->
+        <div class="carousel-slide">
+          <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&h=300&q=80" alt="Khách hàng 3" loading="lazy">
+          <div class="carousel-text">KH. TRẦN ĐỨC VŨ</div>
+        </div>
+        <!-- Slide 4 -->
+        <div class="carousel-slide">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&h=300&q=80" alt="Khách hàng 4" loading="lazy">
+          <div class="carousel-text">KH. LÊ THỊ MỸ</div>
+        </div>
+        <!-- Slide 5 -->
+        <div class="carousel-slide">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&h=300&q=80" alt="Khách hàng 5" loading="lazy">
+          <div class="carousel-text">KH. HOÀNG VĂN TÂM</div>
+        </div>
       </div>
     </div>
   </div>
@@ -1533,6 +1547,23 @@
       });
     }, { rootMargin: "0px 0px -50px 0px" });
     reveals.forEach(el => observer.observe(el));
+
+    // === CAROUSEL SCROLL ===
+    const track = document.getElementById('carouselTrack');
+    const prevBtn = document.querySelector('.carousel-btn.prev');
+    const nextBtn = document.querySelector('.carousel-btn.next');
+
+    if (track && prevBtn && nextBtn) {
+      prevBtn.addEventListener('click', () => {
+        const slideWidth = track.querySelector('.carousel-slide').offsetWidth + 24; // 24px is gap
+        track.scrollBy({ left: -slideWidth, behavior: 'smooth' });
+      });
+
+      nextBtn.addEventListener('click', () => {
+        const slideWidth = track.querySelector('.carousel-slide').offsetWidth + 24;
+        track.scrollBy({ left: slideWidth, behavior: 'smooth' });
+      });
+    }
   });
 </script>
 
