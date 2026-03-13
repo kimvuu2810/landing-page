@@ -752,98 +752,6 @@
     text-align: center;
   }
 
-  /* ===== URGENCY SECTION (Redesigned) ===== */
-  .urgency {
-    background: var(--navy);
-    color: var(--white);
-    text-align: center;
-    position: relative;
-    padding: 70px 24px;
-  }
-  .urgency::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 50% 0%, rgba(201,169,110,0.08) 0%, transparent 50%);
-    pointer-events: none;
-  }
-  .urgency .section-label { color: var(--gold); }
-  .urgency .section-title { color: var(--white); }
-
-  .urgency-phases {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    max-width: 700px;
-    margin: 40px auto 0;
-  }
-  .urgency-phase {
-    border-radius: 20px;
-    padding: 32px 28px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .phase-active {
-    background: rgba(201,169,110,0.1);
-    border: 2px solid var(--gold);
-  }
-  .phase-active::before {
-    content: 'ĐANG DIỄN RA';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    background: var(--gold);
-    color: var(--navy-deep);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    padding: 5px;
-  }
-  .phase-upcoming {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.1);
-  }
-  .phase-icon {
-    font-size: 32px;
-    margin-bottom: 12px;
-    margin-top: 8px;
-  }
-  .phase-active .phase-icon { margin-top: 18px; }
-  .phase-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--white);
-    margin-bottom: 4px;
-  }
-  .phase-date {
-    font-size: 24px;
-    font-weight: 800;
-    color: var(--gold);
-    font-family: 'Playfair Display', serif;
-    margin: 8px 0;
-  }
-  .phase-desc {
-    font-size: 13px;
-    color: rgba(255,255,255,0.6);
-    line-height: 1.6;
-  }
-
-  .urgency-note {
-    background: rgba(255,255,255,0.06);
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(201,169,110,0.25);
-    border-radius: 16px;
-    padding: 24px 32px;
-    max-width: 650px;
-    margin: 36px auto 0;
-    font-size: 15px;
-    color: var(--gold-light);
-    line-height: 1.8;
-  }
-  .urgency-note strong { color: var(--gold); font-weight: 600; }
-  .urgency-cta { margin-top: 36px; }
-
   /* ===== TRUST ===== */
   .trust { background: var(--cream); }
   .trust-header { text-align: center; margin-bottom: 50px; }
@@ -859,12 +767,12 @@
   .carousel { background: var(--white); text-align: center; }
   .carousel-track { display: flex; gap: 24px; overflow-x: auto; padding-bottom: 24px; scrollbar-width: none; -ms-overflow-style: none; scroll-snap-type: x mandatory; margin-top: 0; }
   .carousel-track::-webkit-scrollbar { display: none; }
-  .carousel-slide { flex: 0 0 calc(25% - 18px); scroll-snap-align: start; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--gray-200); background: var(--cream); transition: var(--transition); }
+  .carousel-slide { flex: 0 0 calc(33.333% - 16px); scroll-snap-align: start; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--gray-200); background: var(--cream); transition: var(--transition); }
   .carousel-slide:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: rgba(27,107,90,0.3); }
-  @media (max-width: 992px) { .carousel-slide { flex: 0 0 calc(33.333% - 16px); } }
+  @media (max-width: 992px) { .carousel-slide { flex: 0 0 calc(50% - 12px); } }
   @media (max-width: 768px) { .carousel-slide { flex: 0 0 calc(50% - 12px); } .carousel-wrapper { padding: 0 50px; } }
-  @media (max-width: 480px) { .carousel-slide { flex: 0 0 calc(85%); } }
-  .carousel-slide img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; border-bottom: 3px solid var(--implant-accent); }
+  @media (max-width: 480px) { .carousel-slide { flex: 0 0 calc(100%); } }
+  .carousel-slide img { width: 100%; aspect-ratio: 3/2; object-fit: cover; display: block; border-bottom: 3px solid var(--implant-accent); }
   .carousel-text { padding: 16px 12px; font-weight: 700; color: white; background: var(--implant-accent); font-size: 14px; text-transform: uppercase; }
   
   /* Carousel Controls */
@@ -1316,38 +1224,6 @@
   </div>
 </section>
 
-<!-- URGENCY (Redesigned - No internal timeline) -->
-<section class="urgency" id="thoi-han">
-  <div class="section-inner">
-    <div class="reveal">
-      <div class="section-label">Thời hạn ưu đãi</div>
-      <h2 class="section-title">Chương trình chỉ áp dụng trong thời gian giới hạn</h2>
-    </div>
-
-    <div class="urgency-phases reveal">
-      <div class="urgency-phase phase-active">
-        <div class="phase-icon">⭐</div>
-        <div class="phase-title">Đăng ký ưu đãi</div>
-        <div class="phase-date">01/04 — 01/05</div>
-        <div class="phase-desc">Đăng ký trong thời gian này để nhận ưu đãi tri ân. Suất có hạn.</div>
-      </div>
-      <div class="urgency-phase phase-upcoming">
-        <div class="phase-icon">🔒</div>
-        <div class="phase-title">Giữ chỗ cho bạn</div>
-        <div class="phase-date">Đến 15/05</div>
-        <div class="phase-desc">Đã đăng ký? Ưu đãi được giữ thêm 2 tuần để bạn sắp xếp lịch khám.</div>
-      </div>
-    </div>
-
-    <div class="urgency-note reveal">
-      <strong>Bận chưa đến ngay được?</strong> Chỉ cần đăng ký trước 01/05 — ưu đãi tri ân sẽ được giữ đến <strong>15/05/2026</strong>. Bạn hoàn toàn chủ động thời gian.
-    </div>
-
-    <div class="urgency-cta reveal">
-      <a href="#dang-ky" class="btn-primary">Đăng ký giữ suất ngay →</a>
-    </div>
-  </div>
-</section>
 
 <!-- BOTTOM FORM + CONTACT -->
 <section class="form-section" id="lien-he">
@@ -1414,9 +1290,8 @@
 <!-- CAROUSEL (HIỆU QUẢ ĐIỀU TRỊ) -->
 <section class="section carousel">
   <div class="section-inner">
-    <div class="reveal" style="text-align: center;">
-      <div class="section-label">Hình ảnh khách hàng trồng răng Implant</div>
-      <h2 class="section-title" style="margin-left: auto; margin-right: auto; text-transform: uppercase;">Hiệu quả điều trị qua những trường hợp thực tế</h2>
+    <div class="reveal" style="text-align: center; margin-bottom: 20px;">
+      <h2 class="section-title" style="margin-left: auto; margin-right: auto; text-transform: uppercase; color: var(--implant-accent); font-size: clamp(24px, 4vw, 36px); font-family: 'Be Vietnam Pro', sans-serif;">HÌNH ẢNH KHÁCH HÀNG TRỒNG RĂNG IMPLANT</h2>
     </div>
     
     <div class="carousel-wrapper reveal" style="transition-delay: 0.1s;">
