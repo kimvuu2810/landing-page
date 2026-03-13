@@ -146,39 +146,221 @@
   .section-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 40px); font-weight: 700; color: var(--navy); line-height: 1.3; margin-bottom: 16px; }
   .section-desc { font-size: 16px; color: var(--gray-500); max-width: 650px; line-height: 1.8; }
 
-  /* ===== HERO (Split with Form) ===== */
-  .hero {
-    background: linear-gradient(165deg, var(--navy-deep) 0%, var(--navy) 45%, var(--navy-light) 100%);
-    padding: 50px 24px 70px;
+  /* ===== HERO BANNER ===== */
+  .hero-banner {
     position: relative;
+    min-height: 580px;
+    display: flex;
+    align-items: stretch;
     overflow: hidden;
+    background: linear-gradient(165deg, var(--navy-deep) 0%, var(--navy) 55%, var(--navy-light) 100%);
   }
-  .hero::before {
+  .hero-banner-img {
+    position: absolute;
+    top: 0; right: 0;
+    width: 52%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    opacity: 0.92;
+  }
+  .hero-banner-img-placeholder {
+    position: absolute;
+    top: 0; right: 0;
+    width: 52%;
+    height: 100%;
+    background: linear-gradient(135deg, #1e3a5f 0%, #2c5282 50%, #1a365d 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: rgba(255,255,255,0.35);
+    font-size: 14px;
+    border-left: 1px dashed rgba(201,169,110,0.3);
+  }
+  .hero-banner::after {
     content: '';
     position: absolute;
-    top: -30%; right: -10%;
-    width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(201,169,110,0.06) 0%, transparent 60%);
+    inset: 0;
+    background: linear-gradient(90deg, rgba(15,27,51,0.97) 0%, rgba(15,27,51,0.92) 40%, rgba(15,27,51,0.55) 62%, transparent 100%);
     pointer-events: none;
+    z-index: 1;
   }
-  .hero-inner {
+  .hero-banner-inner {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    padding: 70px 24px 80px 60px;
+    width: 100%;
+    max-width: 580px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .hero-banner-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    background: rgba(201,169,110,0.08);
+    padding: 6px 18px;
+    border-radius: 30px;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+    font-weight: 600;
+    width: fit-content;
+  }
+  .hero-banner-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    animation: pulse-dot 1.8s infinite;
+  }
+  .hero-banner-eyebrow {
+    font-size: clamp(12px, 1.5vw, 14px);
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 4px;
+  }
+  .hero-banner-title {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold);
+    font-size: clamp(52px, 8vw, 80px);
+    font-weight: 800;
+    line-height: 1.0;
+    margin-bottom: 6px;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+  .hero-banner-sub {
+    color: rgba(255,255,255,0.7);
+    font-size: 15px;
+    font-style: italic;
+    margin-bottom: 26px;
+    line-height: 1.6;
+  }
+  .hero-offer-list {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    margin-bottom: 26px;
+  }
+  .hero-offer-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.88);
+    line-height: 1.5;
+  }
+  .hero-offer-dot {
+    width: 6px; height: 6px;
+    min-width: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    margin-top: 6px;
+  }
+  .hero-offer-item strong { color: var(--gold); font-weight: 600; }
+  .hero-period {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.5px;
+    margin-bottom: 28px;
+  }
+  .hero-period strong { color: rgba(255,255,255,0.75); font-weight: 500; }
+  .hero-banner-cta {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: var(--navy-deep);
+    padding: 16px 36px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+    transition: var(--transition);
+    box-shadow: var(--shadow-gold);
+    width: fit-content;
+  }
+  .hero-banner-cta:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(201,169,110,0.55); }
+
+  /* ===== PAIN POINT SECTION ===== */
+  .pain-point {
+    background: var(--white);
+    padding: 80px 24px;
+  }
+  .pain-point-inner {
     max-width: 1100px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 50px;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
     align-items: center;
   }
-  .hero-badge {
-    display: inline-block; border: 1px solid var(--gold); color: var(--gold); background: rgba(201,169,110,0.08);
-    padding: 6px 20px; border-radius: 30px; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; font-weight: 600;
+  .pain-point-header { margin-bottom: 32px; }
+  .pain-point-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--red-urgent);
+    font-weight: 700;
+    margin-bottom: 10px;
   }
-  .hero h1 { font-family: 'Playfair Display', serif; color: var(--white); font-size: clamp(30px, 4.5vw, 46px); font-weight: 700; line-height: 1.25; }
-  .hero h1 em { font-style: normal; color: var(--gold); display: block; font-size: clamp(34px, 5.5vw, 52px); font-weight: 800; margin-top: 4px; }
-  .hero-sub { color: rgba(255,255,255,0.8); font-size: 16px; font-weight: 400; max-width: 480px; margin: 18px 0 0; line-height: 1.8; }
-  .hero-stats { display: flex; gap: 32px; margin-top: 30px; flex-wrap: wrap; }
-  .hero-stat-num { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 700; color: var(--gold); }
-  .hero-stat-label { font-size: 12px; color: rgba(255,255,255,0.55); margin-top: 2px; }
+  .pain-point-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.3;
+  }
+  .pain-list { display: flex; flex-direction: column; gap: 18px; }
+  .pain-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 16px 18px;
+    border-radius: 14px;
+    background: var(--gray-100);
+    border-left: 3px solid transparent;
+    transition: var(--transition);
+  }
+  .pain-item:hover { border-left-color: var(--red-urgent); background: var(--red-light); transform: translateX(4px); }
+  .pain-icon {
+    width: 40px; height: 40px; min-width: 40px;
+    border-radius: 50%;
+    background: rgba(192,57,43,0.08);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+  .pain-item-title { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 3px; }
+  .pain-item-desc { font-size: 13px; color: var(--gray-500); line-height: 1.6; }
+  .pain-point-right { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .pain-card {
+    border-radius: 18px; overflow: hidden;
+    box-shadow: var(--shadow-sm); transition: var(--transition);
+    background: var(--cream); border: 1px solid var(--gray-200);
+  }
+  .pain-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+  .pain-card-img { width: 100%; height: 150px; object-fit: cover; }
+  .pain-card-img-placeholder {
+    width: 100%; height: 150px;
+    background: linear-gradient(135deg, #e8f5f0, #d1ece4);
+    display: flex; align-items: center; justify-content: center; font-size: 32px;
+  }
+  .pain-card-body { padding: 14px 16px; }
+  .pain-card-title { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 6px; line-height: 1.4; }
+  .pain-card-desc { font-size: 12px; color: var(--gray-500); line-height: 1.6; }
+  .pain-card-btn {
+    display: inline-block; margin-top: 8px;
+    font-size: 11px; font-weight: 700; color: var(--implant-accent);
+    text-decoration: none; letter-spacing: 0.5px; text-transform: uppercase;
+  }
 
   /* ===== LEAD FORM ===== */
   .hero-form-wrapper {
@@ -649,8 +831,9 @@
 
   /* ===== RESPONSIVE ===== */
   @media (max-width: 992px) {
-    .hero-inner { grid-template-columns: 1fr; }
-    .hero-form-wrapper { max-width: 500px; margin: 0 auto; }
+    .hero-banner-inner { max-width: 100%; padding-left: 32px; }
+    .pain-point-inner { grid-template-columns: 1fr; }
+    .pain-point-right { order: -1; }
     .implant-box { grid-template-columns: 1fr; }
     .implant-img { min-height: 260px; }
     .urgency-phases { grid-template-columns: 1fr; max-width: 400px; }
@@ -661,6 +844,11 @@
   }
 
   @media (max-width: 768px) {
+    .hero-banner { min-height: auto; flex-direction: column; }
+    .hero-banner-img,
+    .hero-banner-img-placeholder { width: 100%; height: 220px; position: relative; top: auto; right: auto; }
+    .hero-banner::after { background: linear-gradient(180deg, rgba(15,27,51,0.2) 0%, rgba(15,27,51,0.98) 50%, rgba(15,27,51,0.99) 100%); }
+    .hero-banner-inner { padding: 36px 20px 50px; max-width: 100%; }
     .sticky-cta { display: block; }
     body { padding-bottom: 76px; }
     .price-table { font-size: 14px; }
@@ -671,8 +859,8 @@
 
   @media (max-width: 576px) {
     .section { padding: 60px 20px; }
-    .hero { padding: 40px 20px 50px; }
-    .hero-stats { flex-direction: column; gap: 16px; }
+    .pain-point { padding: 60px 20px; }
+    .pain-point-right { grid-template-columns: 1fr 1fr; }
     .form-row { grid-template-columns: 1fr; }
     .hero-form-wrapper { padding: 28px 22px; }
     .trust-grid { grid-template-columns: 1fr; }
@@ -705,83 +893,121 @@
   </div>
 </header>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-content reveal-left">
-      <div class="hero-badge">Tri Ân 20 Năm Đồng Hành</div>
-      <h1>
-        20 năm tận tâm vì nụ cười Việt
-        <em>Ưu đãi đến 50%</em>
-      </h1>
-      <p class="hero-sub">
-        Hơn 152.000 khách hàng đã tin chọn Nha Khoa Đông Nam. Tháng 4 này, chúng tôi tri ân bằng ưu đãi đặc biệt — chỉ trong thời gian giới hạn.
-      </p>
-      <div class="hero-stats">
-        <div class="hero-stat">
-          <div class="hero-stat-num">20+</div>
-          <div class="hero-stat-label">Năm kinh nghiệm</div>
+<!-- HERO BANNER -->
+<!-- HƯỚNG DẪN CHÈN ẢNH:
+     Xóa thẻ div.hero-banner-img-placeholder bên dưới,
+     thay bằng: <img src="TEN_FILE_ANH.jpg" alt="Banner" class="hero-banner-img">
+-->
+<section class="hero-banner">
+  <!-- Vùng ảnh bên phải: xóa div này và thêm <img class="hero-banner-img"> khi có ảnh thật -->
+  <div class="hero-banner-img-placeholder">
+    <svg width="64" height="64" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+    <span>Chèn ảnh banner tại đây</span>
+    <span style="font-size:11px;opacity:0.6;">Kích thước đề xuất: 900×580px</span>
+  </div>
+
+  <div class="hero-banner-inner reveal-left">
+    <div class="hero-banner-badge">Ưu đãi đặc biệt</div>
+    <p class="hero-banner-eyebrow">Chào mừng đại lễ</p>
+    <div class="hero-banner-title">30/4</div>
+    <p class="hero-banner-sub">"Trồng răng – Điều trị – Chăm sóc răng miệng"</p>
+
+    <div class="hero-offer-list">
+      <div class="hero-offer-item">
+        <div class="hero-offer-dot"></div>
+        <span><strong>-20%</strong> Implant ETK Active (Pháp)</span>
+      </div>
+      <div class="hero-offer-item">
+        <div class="hero-offer-dot"></div>
+        <span><strong>-50%</strong> Nhổ răng khôn &amp; Trám răng</span>
+      </div>
+      <div class="hero-offer-item">
+        <div class="hero-offer-dot"></div>
+        <span>Tặng <strong>Voucher 300.000đ</strong> dành riêng cho dịch vụ chữa tủy răng</span>
+      </div>
+    </div>
+
+    <p class="hero-period">Thời gian: <strong>1/4/2026 – 1/5/2026</strong></p>
+    <a href="#dang-ky" class="hero-banner-cta">ĐĂNG KÝ TƯ VẤN MIỄN PHÍ →</a>
+  </div>
+</section>
+
+<!-- PAIN POINT: ĐỪNG ĐỂ NHỮNG NỖI LO RĂNG MIỆNG CẢN TRỞ NIỀM VUI NGÀY LỄ -->
+<section class="pain-point" id="noi-lo">
+  <div class="pain-point-inner">
+    <!-- Bên trái: Text + danh sách nỗi đau -->
+    <div>
+      <div class="pain-point-header reveal">
+        <div class="pain-point-label">Nhận ra vấn đề của bạn?</div>
+        <h2 class="pain-point-title">Đừng để những nỗi lo răng miệng cản trở niềm vui ngày lễ</h2>
+      </div>
+      <div class="pain-list">
+        <div class="pain-item reveal" style="transition-delay:0.05s">
+          <div class="pain-icon">🦷</div>
+          <div class="pain-item-content">
+            <div class="pain-item-title">Mất răng lâu năm</div>
+            <div class="pain-item-desc">Ăn uống khó khăn, tiêu xương hàm khiến gương mặt lão hóa sớm.</div>
+          </div>
         </div>
-        <div class="hero-stat">
-          <div class="hero-stat-num">152K+</div>
-          <div class="hero-stat-label">Khách hàng</div>
+        <div class="pain-item reveal" style="transition-delay:0.1s">
+          <div class="pain-icon">😬</div>
+          <div class="pain-item-content">
+            <div class="pain-item-title">Răng sâu, mẻ</div>
+            <div class="pain-item-desc">Đau nhức âm ỉ, mất tự tin khi giao tiếp.</div>
+          </div>
         </div>
-        <div class="hero-stat">
-          <div class="hero-stat-num">10.500+</div>
-          <div class="hero-stat-label">Ca Implant</div>
+        <div class="pain-item reveal" style="transition-delay:0.15s">
+          <div class="pain-icon">⚠️</div>
+          <div class="pain-item-content">
+            <div class="pain-item-title">Răng khôn mọc lệch</div>
+            <div class="pain-item-desc">Gây sưng tấy, viêm nhiễm và đe dọa sức khỏe của các răng lân cận.</div>
+          </div>
+        </div>
+        <div class="pain-item reveal" style="transition-delay:0.2s">
+          <div class="pain-icon">🔥</div>
+          <div class="pain-item-content">
+            <div class="pain-item-title">Viêm tủy</div>
+            <div class="pain-item-desc">Những cơn đau dữ dội, ảnh hưởng trực tiếp đến giấc ngủ và hiệu suất công việc.</div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- LEAD CAPTURE FORM -->
-    <div class="hero-form-wrapper reveal-right" id="dang-ky">
-      <div class="form-header">
-        <div class="form-urgency-badge">Suất ưu đãi có hạn</div>
-        <h3>Đăng ký nhận ưu đãi tri ân</h3>
-        <p>Để lại thông tin — Tư vấn viên sẽ liên hệ xác nhận trong 30 phút</p>
-      </div>
-      <div class="form-group">
-        <label>Họ và tên *</label>
-        <input type="text" placeholder="Nhập họ tên">
-      </div>
-      <div class="form-group">
-        <label>Số điện thoại *</label>
-        <input type="tel" placeholder="0912 345 678">
-      </div>
-      <div class="form-group">
-        <label>Dịch vụ quan tâm</label>
-        <select>
-          <option value="">— Chọn dịch vụ —</option>
-          <option value="tram">Trám răng (Ưu đãi 50%)</option>
-          <option value="nho-khon">Nhổ răng khôn (Ưu đãi 50%)</option>
-          <option value="chua-tuy">Chữa tủy (Voucher 300K)</option>
-          <option value="implant">Implant ETK (Hỗ trợ 20%)</option>
-          <option value="khac">Tư vấn chung</option>
-        </select>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Cơ sở</label>
-          <select>
-            <option value="pn">Phú Nhuận</option>
-            <option value="q10">Quận 10</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Thời gian mong muốn</label>
-          <select>
-            <option value="">— Chọn —</option>
-            <option value="sang">Buổi sáng</option>
-            <option value="chieu">Buổi chiều</option>
-            <option value="linh-hoat">Linh hoạt</option>
-          </select>
+    <!-- Bên phải: 4 thẻ dịch vụ -->
+    <!-- HƯỚNG DẪN: Thay .pain-card-img-placeholder bằng <img src="..." class="pain-card-img"> khi có ảnh -->
+    <div class="pain-point-right">
+      <div class="pain-card reveal" style="transition-delay:0.1s">
+        <div class="pain-card-img-placeholder">🦷</div>
+        <div class="pain-card-body">
+          <div class="pain-card-title">Nhổ răng khôn an toàn</div>
+          <div class="pain-card-desc">Công nghệ X-quang 3D, ít đau, lành thương nhanh. Ưu đãi -50%.</div>
+          <a href="#dang-ky" class="pain-card-btn">Tìm hiểu thêm →</a>
         </div>
       </div>
-      <button class="form-submit" type="button">ĐĂNG KÝ NHẬN ƯU ĐÃI →</button>
-      <p class="form-note">
-        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        Thông tin được bảo mật. Tư vấn miễn phí, không ràng buộc.
-      </p>
+      <div class="pain-card reveal" style="transition-delay:0.15s">
+        <div class="pain-card-img-placeholder">😄</div>
+        <div class="pain-card-body">
+          <div class="pain-card-title">Nhổ răng khôn</div>
+          <div class="pain-card-desc">Bác sĩ chuyên sâu, môi trường vô khuẩn chuẩn quốc tế.</div>
+          <a href="#dang-ky" class="pain-card-btn">Tìm hiểu thêm →</a>
+        </div>
+      </div>
+      <div class="pain-card reveal" style="transition-delay:0.2s">
+        <div class="pain-card-img-placeholder">🏥</div>
+        <div class="pain-card-body">
+          <div class="pain-card-title">Điều trị tủy răng</div>
+          <div class="pain-card-desc">Chấm dứt cơn đau nhanh chóng. Voucher tặng 300.000đ cho lần đầu.</div>
+          <a href="#dang-ky" class="pain-card-btn">Tìm hiểu thêm →</a>
+        </div>
+      </div>
+      <div class="pain-card reveal" style="transition-delay:0.25s">
+        <div class="pain-card-img-placeholder">✨</div>
+        <div class="pain-card-body">
+          <div class="pain-card-title">Cấy ghép Implant</div>
+          <div class="pain-card-desc">Phục hồi răng mất vĩnh viễn. Hỗ trợ chi phí -20% dịp lễ.</div>
+          <a href="#dang-ky" class="pain-card-btn">Tìm hiểu thêm →</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
