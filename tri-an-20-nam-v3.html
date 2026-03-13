@@ -802,6 +802,19 @@
   @media (max-width: 992px) { .video-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; } }
   @media (max-width: 480px) { .video-grid { grid-template-columns: 1fr; gap: 30px; max-width: 320px; } }
 
+  /* ===== PRESS (BÁO CHÍ NHÚNG IFRAME) ===== */
+  .press { background: var(--cream); text-align: center; }
+  .press-header { max-width: 800px; margin: 0 auto 50px; }
+  .press-header h2 { font-family: 'Be Vietnam Pro', sans-serif; font-size: clamp(24px, 4vw, 36px); color: var(--navy); text-transform: uppercase; margin-bottom: 20px; }
+  .press-header p { font-size: 16px; color: var(--gray-700); line-height: 1.6; }
+  .press-track { display: flex; gap: 30px; overflow-x: auto; padding-bottom: 30px; scrollbar-width: none; -ms-overflow-style: none; scroll-snap-type: x mandatory; margin-top: 0; }
+  .press-track::-webkit-scrollbar { display: none; }
+  .press-item { display: block; flex: 0 0 calc(33.333% - 20px); scroll-snap-align: start; border-radius: 20px; overflow: hidden; background: var(--white); box-shadow: var(--shadow-sm); border: 1px solid var(--gray-200); position: relative; height: 500px; transition: var(--transition); text-decoration: none; }
+  .press-item:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); border-color: rgba(201,169,110,0.5); }
+  .press-item iframe { width: 140%; height: 140%; transform: scale(0.714); transform-origin: top left; border: none; pointer-events: none; background: #fff; }
+  @media (max-width: 992px) { .press-item { flex: 0 0 calc(50% - 15px); } }
+  @media (max-width: 768px) { .press-item { flex: 0 0 85%; height: 400px; } }
+
   /* ===== INLINE FORM (Bottom CTA section) ===== */
   .form-section {
     background: linear-gradient(165deg, var(--navy-deep), var(--navy));
@@ -1421,6 +1434,38 @@
       <div class="video-item" style="transition-delay: 0.4s;">
         <iframe src="https://www.youtube.com/embed/WBPU55A7D0E" title="Khách hàng 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRESS SECTION -->
+<section class="section press">
+  <div class="section-inner">
+    <div class="press-header reveal">
+      <div class="section-label" style="text-align: center; justify-content: center;">Báo chí nói gì về dịch vụ trồng răng tại Nha Khoa Đông Nam?</div>
+      <p style="margin-top: 15px;">Trải qua hơn 20 năm phát triển, Nha khoa Đông Nam không chỉ mang đến dịch vụ nha khoa chất lượng mà còn là địa chỉ cấy ghép Implant hàng đầu, được đông đảo khách hàng tin tưởng và truyền thông đánh giá cao.</p>
+    </div>
+    
+    <div class="press-track reveal">
+      <!-- Báo 1: CafeF -->
+      <a href="https://cafef.vn/nha-khoa-dong-nam-hanh-trinh-khang-dinh-vi-the-trong-nganh-nha-khoa-188240709234717446.chn" target="_blank" class="press-item" style="transition-delay: 0.1s;">
+        <iframe src="https://cafef.vn/nha-khoa-dong-nam-hanh-trinh-khang-dinh-vi-the-trong-nganh-nha-khoa-188240709234717446.chn" scrolling="no"></iframe>
+      </a>
+      
+      <!-- Báo 2: 24h -->
+      <a href="https://www.24h.com.vn/tin-tuc-suc-khoe/nen-chon-implant-etk-active-nobel-active-cho-nguoi-mat-rang-lau-nam-c683a1590040.html" target="_blank" class="press-item" style="transition-delay: 0.2s;">
+        <iframe src="https://www.24h.com.vn/tin-tuc-suc-khoe/nen-chon-implant-etk-active-nobel-active-cho-nguoi-mat-rang-lau-nam-c683a1590040.html" scrolling="no"></iframe>
+      </a>
+      
+      <!-- Báo 3: Dân Trí -->
+      <a href="https://dantri.com.vn/suc-khoe/uu-diem-dot-pha-cua-tru-implant-straumann-20250225191103421.htm" target="_blank" class="press-item" style="transition-delay: 0.3s;">
+        <iframe src="https://dantri.com.vn/suc-khoe/uu-diem-dot-pha-cua-tru-implant-straumann-20250225191103421.htm" scrolling="no"></iframe>
+      </a>
+      
+      <!-- Báo 4: VNExpress -->
+      <a href="https://vnexpress.net/uu-diem-cua-giai-phap-trong-rang-implant-toan-ham-4875056.html" target="_blank" class="press-item" style="transition-delay: 0.4s;">
+        <iframe src="https://vnexpress.net/uu-diem-cua-giai-phap-trong-rang-implant-toan-ham-4875056.html" scrolling="no"></iframe>
+      </a>
     </div>
   </div>
 </section>
