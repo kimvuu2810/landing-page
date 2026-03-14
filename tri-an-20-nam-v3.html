@@ -51,20 +51,20 @@
     <div class="hero-banner-title">30/4</div>
     <p class="hero-banner-sub">"Trồng răng – Điều trị – Chăm sóc răng miệng"</p>
 
-    <div class="hero-offer-list">
-      <div class="hero-offer-item">
-        <div class="hero-offer-dot"></div>
+    <ul class="hero-offer-list">
+      <li class="hero-offer-item">
+        <div class="hero-offer-dot" aria-hidden="true"></div>
         <span><strong>-20%</strong> Implant ETK Active (Pháp)</span>
-      </div>
-      <div class="hero-offer-item">
-        <div class="hero-offer-dot"></div>
+      </li>
+      <li class="hero-offer-item">
+        <div class="hero-offer-dot" aria-hidden="true"></div>
         <span><strong>-50%</strong> Nhổ răng khôn &amp; Trám răng</span>
-      </div>
-      <div class="hero-offer-item">
-        <div class="hero-offer-dot"></div>
+      </li>
+      <li class="hero-offer-item">
+        <div class="hero-offer-dot" aria-hidden="true"></div>
         <span>Tặng <strong>Voucher 300.000đ</strong> dành riêng cho dịch vụ chữa tủy răng</span>
-      </div>
-    </div>
+      </li>
+    </ul>
 
     <p class="hero-period">Thời gian: <strong>1/4/2026 – 1/5/2026</strong></p>
     <a href="#dang-ky" class="hero-banner-cta">ĐĂNG KÝ TƯ VẤN MIỄN PHÍ →</a>
@@ -288,7 +288,7 @@
 </section>
 
 
-<!-- BOTTOM FORM + CONTACT -->
+<!-- FORM 1 (id: lien-he) — CF7 sẽ được nhúng bên dưới -->
 <section class="form-section" id="lien-he">
   <div class="form-section-inner">
     <div class="form-section-text reveal-left">
@@ -323,29 +323,28 @@
         <h3>Đăng ký nhận ưu đãi</h3>
         <p>Tư vấn viên liên hệ xác nhận trong 30 phút</p>
       </div>
-      <div class="form-group">
-        <label>Họ và tên *</label>
-        <input type="text" placeholder="Nhập họ tên">
-      </div>
-      <div class="form-group">
-        <label>Số điện thoại *</label>
-        <input type="tel" placeholder="0912 345 678">
-      </div>
-      <div class="form-group">
-        <label>Dịch vụ đăng ký</label>
-        <select>
-          <option value="">— Chọn dịch vụ —</option>
-          <option value="implant">Trồng răng Implant</option>
-          <option value="tram">Trám răng</option>
-          <option value="nho-khon">Nhổ răng khôn</option>
-          <option value="chua-tuy">Chữa tủy răng</option>
-        </select>
-      </div>
-      <button class="form-submit" type="button">ĐĂNG KÝ NHẬN ƯU ĐÃI →</button>
-      <p class="form-note">
-        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        Bảo mật thông tin. Tư vấn miễn phí, không ràng buộc.
-      </p>
+      <!--
+        ===== DÁN SHORTCODE CONTACT FORM 7 VÀO ĐÂY =====
+        [contact-form-7 id="ID_FORM" title="Form đăng ký ưu đãi"]
+
+        Template dán vào WP Admin > Contact > chọn form > tab Form:
+        ──────────────────────────────────────────────────────────
+        <div class="form-group">
+          <label for="f1-hoten">Họ và tên *</label>
+          [text* your-name id:f1-hoten placeholder "Nhập họ tên"]
+        </div>
+        <div class="form-group">
+          <label for="f1-phone">Số điện thoại *</label>
+          [tel* your-tel id:f1-phone placeholder "0912 345 678"]
+        </div>
+        <div class="form-group">
+          <label for="f1-service">Dịch vụ đăng ký</label>
+          [select your-service id:f1-service first_as_label "— Chọn dịch vụ —" "Trồng răng Implant" "Trám răng" "Nhổ răng khôn" "Chữa tủy răng"]
+        </div>
+        [submit class:form-submit "ĐĂNG KÝ NHẬN ƯU ĐÃI →"]
+        <p class="form-note">Bảo mật thông tin. Tư vấn miễn phí, không ràng buộc.</p>
+        ──────────────────────────────────────────────────────────
+      -->
     </div>
   </div>
 </section>
@@ -412,28 +411,28 @@
         <div class="trust-item" style="transition-delay: 0.1s;">
           <div class="trust-icon">👨‍⚕️</div>
           <div class="trust-content">
-            <h4>Hơn 20 năm kinh nghiệm trong lĩnh vực nha khoa</h4>
+            <h3>Hơn 20 năm kinh nghiệm trong lĩnh vực nha khoa</h3>
             <p>Thành lập và phát triển hơn 20 năm, Nha khoa Đông Nam đã thực hiện hơn 10.500 ca cấy ghép Implant, được các trang báo điện tử uy tín (Dân Trí, VnExpress, CafeF...) đánh giá cao.</p>
           </div>
         </div>
         <div class="trust-item" style="transition-delay: 0.2s;">
           <div class="trust-icon">💖</div>
           <div class="trust-content">
-            <h4>Đội ngũ bác sĩ giàu kinh nghiệm, tận tâm</h4>
+            <h3>Đội ngũ bác sĩ giàu kinh nghiệm, tận tâm</h3>
             <p>Đội ngũ bác sĩ không chỉ giỏi chuyên môn mà còn luôn tận tâm, nhẹ nhàng, giúp cô chú, anh chị yên tâm trong suốt quá trình điều trị.</p>
           </div>
         </div>
         <div class="trust-item" style="transition-delay: 0.4s;">
           <div class="trust-icon">🛡️</div>
           <div class="trust-content">
-            <h4>Quy trình vô trùng theo tiêu chuẩn nha khoa</h4>
+            <h3>Quy trình vô trùng theo tiêu chuẩn nha khoa</h3>
             <p>Tuân thủ nghiêm ngặt quy trình vô trùng để đảm bảo an toàn, tránh lây nhiễm, giúp khách hàng thoải mái và an tâm khi điều trị.</p>
           </div>
         </div>
         <div class="trust-item" style="transition-delay: 0.5s;">
           <div class="trust-icon">📋</div>
           <div class="trust-content">
-            <h4>Tư vấn rõ ràng, chi phí minh bạch</h4>
+            <h3>Tư vấn rõ ràng, chi phí minh bạch</h3>
             <p>Bác sĩ tư vấn chi tiết về tình trạng răng, lựa chọn phương án tối ưu. Mọi chi phí đều minh bạch, không phát sinh, phù hợp với nhu cầu tài chính.</p>
           </div>
         </div>
@@ -511,47 +510,47 @@
       <!-- Cột trái: câu 1–5 -->
       <div class="faq-col">
         <div class="faq-item">
-          <button class="faq-question">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">
             <span>1. Trồng răng Implant có đau không?</span>
-            <span class="faq-icon">+</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-answer-1">
             <p>Quá trình cấy ghép Implant được thực hiện dưới gây tê nên khách hàng hầu như không cảm thấy đau. Sau khi điều trị, bác sĩ sẽ hướng dẫn chăm sóc và kê thuốc phù hợp để giúp quá trình hồi phục diễn ra nhẹ nhàng.</p>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">
             <span>2. Implant ETK Active của Pháp có ưu điểm gì?</span>
-            <span class="faq-icon">+</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-answer-2">
             <p>Implant ETK Active là dòng trụ Implant đến từ Pháp, nổi bật với khả năng tích hợp xương tốt, độ ổn định cao, rút ngắn thời gian điều trị trong 3 - 4 tuần, tuổi thọ lâu dài. Đây là một trong những dòng Implant được nhiều bác sĩ lựa chọn trong điều trị mất răng.</p>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">
             <span>3. Nhổ răng khôn có nguy hiểm không?</span>
-            <span class="faq-icon">+</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-answer-3">
             <p>Nhổ răng khôn là một tiểu phẫu phổ biến trong nha khoa. Khi được thực hiện bởi bác sĩ có kinh nghiệm và với sự hỗ trợ của các thiết bị hiện đại, quá trình nhổ răng sẽ diễn ra an toàn và hạn chế đau nhức.</p>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">
             <span>4. Trám răng sâu có bền không?</span>
-            <span class="faq-icon">+</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-answer-4">
             <p>Trám răng bằng vật liệu thẩm mỹ có thể duy trì nhiều năm nếu được thực hiện đúng kỹ thuật và chăm sóc răng miệng tốt. Bác sĩ sẽ lựa chọn vật liệu phù hợp để đảm bảo độ bền và thẩm mỹ.</p>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5">
             <span>5. Điều trị tủy răng có cần bọc răng sứ không?</span>
-            <span class="faq-icon">+</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-answer-5">
             <p>Sau khi điều trị tủy, răng thường trở nên giòn hơn. Trong nhiều trường hợp, bác sĩ sẽ khuyến nghị bọc răng sứ để bảo vệ răng và giúp răng hoạt động bền vững hơn khi ăn nhai.</p>
           </div>
         </div>
@@ -559,47 +558,47 @@
       <!-- Cột phải: câu 6–10 -->
       <div class="faq-col">
         <div class="faq-item">
-          <button class="faq-question">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-6">
             <span>6. Tôi cần bao lâu để hoàn tất trồng răng Implant?</span>
-            <span class="faq-icon">+</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-answer-6">
             <p>Thời gian điều trị Implant thường kéo dài từ vài tuần đến vài tháng, tùy thuộc vào tình trạng xương hàm và kế hoạch điều trị của từng khách hàng. Bác sĩ sẽ tư vấn lộ trình cụ thể sau khi thăm khám.</p>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-7">
             <span>7. Chi phí điều trị có phát sinh thêm không?</span>
-            <span class="faq-icon">+</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-answer-7">
             <p>Tại Nha khoa Đông Nam, khách hàng sẽ được bác sĩ tư vấn chi tiết về tình trạng răng và thông báo chi phí trước khi điều trị. Phòng khám luôn minh bạch về chi phí để khách hàng chủ động lựa chọn.</p>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-8">
             <span>8. Chương trình ưu đãi dịp 30/4 – 1/5 áp dụng như thế nào?</span>
-            <span class="faq-icon">+</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-answer-8">
             <p>Chương trình áp dụng cho các dịch vụ trong thời gian khuyến mãi. Khách hàng đăng ký và đặt lịch trong thời gian này sẽ được hưởng mức ưu đãi theo chương trình.</p>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-9">
             <span>9. Tôi cần đặt lịch trước khi đến khám không?</span>
-            <span class="faq-icon">+</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-answer-9">
             <p>Khách hàng nên đặt lịch trước để phòng khám sắp xếp thời gian thăm khám và tư vấn thuận tiện nhất.</p>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-10">
             <span>10. Làm thế nào để đăng ký nhận ưu đãi?</span>
-            <span class="faq-icon">+</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-answer-10">
             <p>Khách hàng chỉ cần điền thông tin vào form đăng ký trên trang hoặc liên hệ trực tiếp với phòng khám để được tư vấn và giữ suất ưu đãi.</p>
           </div>
         </div>
@@ -608,7 +607,7 @@
   </div>
 </section>
 
-<!-- BOTTOM FORM + CONTACT (COPY) -->
+<!-- FORM 2 (id: dang-ky) — CF7 sẽ được nhúng bên dưới -->
 <section class="form-section" id="dang-ky">
   <div class="form-section-inner">
     <div class="form-section-text reveal-left">
@@ -643,29 +642,28 @@
         <h3>Đăng ký nhận ưu đãi</h3>
         <p>Tư vấn viên liên hệ xác nhận trong 30 phút</p>
       </div>
-      <div class="form-group">
-        <label>Họ và tên *</label>
-        <input type="text" placeholder="Nhập họ tên">
-      </div>
-      <div class="form-group">
-        <label>Số điện thoại *</label>
-        <input type="tel" placeholder="0912 345 678">
-      </div>
-      <div class="form-group">
-        <label>Dịch vụ đăng ký</label>
-        <select>
-          <option value="">— Chọn dịch vụ —</option>
-          <option value="implant">Trồng răng Implant</option>
-          <option value="tram">Trám răng</option>
-          <option value="nho-khon">Nhổ răng khôn</option>
-          <option value="chua-tuy">Chữa tủy răng</option>
-        </select>
-      </div>
-      <button class="form-submit" type="button">ĐĂNG KÝ NHẬN ƯU ĐÃI →</button>
-      <p class="form-note">
-        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        Bảo mật thông tin. Tư vấn miễn phí, không ràng buộc.
-      </p>
+      <!--
+        ===== DÁN SHORTCODE CONTACT FORM 7 VÀO ĐÂY =====
+        [contact-form-7 id="ID_FORM" title="Form đăng ký ưu đãi"]
+
+        Template dán vào WP Admin > Contact > chọn form > tab Form:
+        ──────────────────────────────────────────────────────────
+        <div class="form-group">
+          <label for="f2-hoten">Họ và tên *</label>
+          [text* your-name id:f2-hoten placeholder "Nhập họ tên"]
+        </div>
+        <div class="form-group">
+          <label for="f2-phone">Số điện thoại *</label>
+          [tel* your-tel id:f2-phone placeholder "0912 345 678"]
+        </div>
+        <div class="form-group">
+          <label for="f2-service">Dịch vụ đăng ký</label>
+          [select your-service id:f2-service first_as_label "— Chọn dịch vụ —" "Trồng răng Implant" "Trám răng" "Nhổ răng khôn" "Chữa tủy răng"]
+        </div>
+        [submit class:form-submit "ĐĂNG KÝ NHẬN ƯU ĐÃI →"]
+        <p class="form-note">Bảo mật thông tin. Tư vấn miễn phí, không ràng buộc.</p>
+        ──────────────────────────────────────────────────────────
+      -->
     </div>
   </div>
 </section>
