@@ -1017,7 +1017,56 @@
     .hero-form-wrapper { padding: 28px 22px; }
     .trust-grid { grid-template-columns: 1fr; }
     .btn-primary, .btn-navy, .btn-implant { width: 100%; text-align: center; }
-    .price-table { display: block; overflow-x: auto; white-space: nowrap; }
     .branch-card { padding: 30px 20px; }
     .branch-actions { flex-direction: column; }
+
+    /* Price table → card layout */
+    .price-table { display: block; white-space: normal; overflow: visible; border: none; box-shadow: none; border-radius: 0; }
+    .price-table thead { display: none; }
+    .price-table tbody { display: flex; flex-direction: column; gap: 12px; }
+    .price-table tbody tr {
+      display: grid;
+      grid-template-areas: "name name" "orig new" "badge badge";
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--gray-200);
+      border-radius: 14px;
+      overflow: hidden;
+      background: white;
+      box-shadow: var(--shadow-sm);
+    }
+    .price-table tbody td:nth-child(1) { grid-area: name; padding: 14px 16px 10px; border-bottom: 1px solid var(--gray-200); }
+    .price-table tbody td:nth-child(2) { grid-area: orig; padding: 10px 8px 14px 16px; }
+    .price-table tbody td:nth-child(3) { grid-area: new; padding: 10px 16px 14px 8px; text-align: right; }
+    .price-table tbody td.badge-cell { grid-area: badge; padding: 8px 16px 12px; border-top: 1px solid var(--gray-200); text-align: left; }
+    /* Voucher row: spans full width */
+    .price-table tbody tr:last-child { display: block; }
+    .price-table tbody tr:last-child td { display: block; padding: 16px; }
+  }
+
+  /* ===== SERVICE CARDS: swiper on mobile ===== */
+  @media (max-width: 768px) {
+    .service-cards {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      gap: 16px;
+      padding: 4px 20px 20px;
+      margin: 0 -20px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .service-cards::-webkit-scrollbar { display: none; }
+    .service-card {
+      flex: 0 0 82%;
+      scroll-snap-align: start;
+    }
+  }
+
+  /* ===== IMPLANT PRIVILEGE: stack on mobile ===== */
+  @media (max-width: 768px) {
+    .implant-priv {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
   }
