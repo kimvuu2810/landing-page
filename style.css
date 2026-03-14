@@ -1070,3 +1070,53 @@
       gap: 32px;
     }
   }
+
+  /* ===== VIDEO TESTIMONIALS: title nhỏ hơn + swiper trên mobile ===== */
+  @media (max-width: 768px) {
+    .video-testimonials .section-title {
+      font-size: clamp(17px, 4.5vw, 20px);
+      letter-spacing: -0.2px;
+    }
+    .video-testimonials { padding: 60px 20px; }
+    .video-grid {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      gap: 14px;
+      padding: 4px 20px 20px;
+      margin: 0 -20px;
+      max-width: none;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .video-grid::-webkit-scrollbar { display: none; }
+    .video-item {
+      flex: 0 0 72%;
+      scroll-snap-align: start;
+      border-radius: 16px;
+    }
+  }
+
+  /* ===== TRUST LIST: swiper trên mobile ===== */
+  @media (max-width: 768px) {
+    .trust-list {
+      flex-direction: row;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      gap: 14px;
+      padding: 4px 0 16px;
+      margin: 0 -20px;
+      padding-left: 20px;
+      padding-right: 20px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .trust-list::-webkit-scrollbar { display: none; }
+    .trust-item {
+      flex: 0 0 82%;
+      scroll-snap-align: start;
+      transform: none !important;
+    }
+  }
