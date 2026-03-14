@@ -66,9 +66,13 @@
       const question = item.querySelector('.faq-question');
       question.addEventListener('click', () => {
         const isActive = item.classList.contains('active');
-        faqItems.forEach(i => i.classList.remove('active')); // close others
+        faqItems.forEach(i => {
+          i.classList.remove('active');
+          i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
         if (!isActive) {
           item.classList.add('active');
+          question.setAttribute('aria-expanded', 'true');
         }
       });
     });
