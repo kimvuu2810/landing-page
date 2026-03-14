@@ -809,7 +809,8 @@
   .faq { background: var(--white); padding: 80px 24px; }
   .faq-header { max-width: 800px; margin: 0 auto 50px; text-align: center; }
   .faq-header h2 { font-family: 'Be Vietnam Pro', sans-serif; font-size: clamp(24px, 4vw, 36px); color: var(--navy); text-transform: uppercase; margin-bottom: 20px; }
-  .faq-list { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+  .faq-list { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+  .faq-col { display: flex; flex-direction: column; gap: 16px; }
   .faq-item { border: 1px solid var(--gray-200); border-radius: 12px; overflow: hidden; background: var(--cream); transition: var(--transition); }
   .faq-question { width: 100%; text-align: left; padding: 20px 24px; background: none; border: none; font-size: 16px; font-weight: 700; color: var(--navy); display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: color 0.3s; font-family: 'Be Vietnam Pro', sans-serif;}
   .faq-question:hover { color: var(--gold); }
@@ -894,33 +895,35 @@
   /* ===== ADDRESS / BRANCHES ===== */
   .branches { background: var(--cream); padding: 80px 24px; text-align: center; }
   .branches-header { margin-bottom: 50px; }
-  .branches-header h2 { font-family: 'Be Vietnam Pro', sans-serif; font-size: clamp(24px, 4vw, 36px); color: var(--navy); text-transform: uppercase; margin-bottom: 20px; }
+  .branches-header h2, .branches-header-title { font-family: 'Be Vietnam Pro', sans-serif; font-size: clamp(24px, 4vw, 36px); color: var(--navy); text-transform: uppercase; margin-bottom: 20px; }
   .branches-header p { font-size: 16px; color: var(--gray-700); max-width: 600px; margin: 0 auto; line-height: 1.6; }
   .branch-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 1000px; margin: 0 auto; text-align: left; }
   .branch-card { background: var(--white); border-radius: 20px; padding: 40px 30px; box-shadow: var(--shadow-sm); border: 2px solid transparent; position: relative; transition: var(--transition); }
   .branch-card.main { border-color: var(--gold); }
-  .branch-card.sub { border-color: rgba(15,27,51,0.1); }
+  .branch-card.sub { border-color: rgba(201,169,110,0.3); }
+  .branch-card.sub:hover { border-color: var(--gold); }
   .branch-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
   .branch-badge { position: absolute; top: -16px; right: 30px; padding: 6px 16px; border-radius: 30px; font-size: 13px; font-weight: 700; color: var(--white); display: flex; align-items: center; gap: 6px; }
   .branch-badge.main { background: var(--gold); box-shadow: 0 4px 10px rgba(201,169,110,0.3); }
-  .branch-badge.sub { background: #6366f1; box-shadow: 0 4px 10px rgba(99,102,241,0.3); }
+  .branch-badge.sub { background: var(--navy); box-shadow: 0 4px 10px rgba(27,42,74,0.3); }
   .branch-title { font-family: 'Be Vietnam Pro', sans-serif; font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
   .branch-title svg { color: var(--gold); }
-  .branch-address { display: flex; gap: 12px; margin-bottom: 24px; color: var(--gray-700); font-size: 15px; line-height: 1.5; padding: 16px; background: var(--cream); border-radius: 12px; border-left: 4px solid rgba(201,169,110,0.3); }
-  .branch-address svg { color: var(--navy); flex-shrink: 0; margin-top: 2px; }
+  .branch-address { display: flex; gap: 12px; margin-bottom: 24px; color: var(--gray-700); font-size: 15px; line-height: 1.5; padding: 16px; background: var(--cream); border-radius: 12px; border-left: 4px solid var(--gold); }
+  .branch-address svg { color: var(--gold-dark); flex-shrink: 0; margin-top: 2px; }
   .branch-info-group { margin-bottom: 24px; }
   .branch-info-label { font-size: 14px; font-weight: 700; color: var(--navy); display: flex; align-items: center; gap: 8px; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
-  .branch-info-label svg { color: #22c55e; }
+  .branch-info-label svg { color: var(--gold); }
   .branch-info-row { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 8px; color: var(--gray-700); }
   .branch-info-row strong { color: var(--navy); font-weight: 600; }
-  .branch-info-row a { color: #3b82f6; text-decoration: none; font-weight: 600; }
+  .branch-info-row a { color: var(--gold-dark); text-decoration: none; font-weight: 600; }
+  .branch-info-row a:hover { color: var(--gold); }
   .branch-actions { display: flex; gap: 15px; margin-top: 30px; }
-  .btn-map { flex: 1; background: #6366f1; color: white; border: none; padding: 14px 20px; border-radius: 30px; font-size: 15px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; transition: background 0.3s; }
-  .btn-map:hover { background: #4f46e5; }
-  .btn-call-branch { flex: 1; background: #22c55e; color: white; border: none; padding: 14px 20px; border-radius: 30px; font-size: 15px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; transition: background 0.3s; }
-  .btn-call-branch:hover { background: #16a34a; }
-  .company-info { text-align: center; margin-top: 50px; font-size: 14px; color: #64748b; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 8px; }
-  .company-info svg { color: #6366f1; }
+  .btn-map { flex: 1; background: var(--navy); color: white; border: none; padding: 14px 20px; border-radius: 30px; font-size: 15px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; transition: background 0.3s; }
+  .btn-map:hover { background: var(--navy-light); }
+  .btn-call-branch { flex: 1; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: var(--navy-deep); border: none; padding: 14px 20px; border-radius: 30px; font-size: 15px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; transition: all 0.3s; box-shadow: var(--shadow-gold); }
+  .btn-call-branch:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(201,169,110,0.5); }
+  .company-info { text-align: center; margin-top: 50px; font-size: 14px; color: var(--gray-700); font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 8px; }
+  .company-info svg { color: var(--gold); }
 
   /* ===== FOOTER ===== */
   .footer-bottom {
@@ -986,6 +989,7 @@
     .form-section .hero-form-wrapper { max-width: 500px; margin: 0 auto; }
     .trust-grid { grid-template-columns: repeat(2, 1fr); }
     .branch-grid { grid-template-columns: 1fr; max-width: 600px; }
+    .faq-list { grid-template-columns: 1fr; max-width: 700px; }
   }
 
   @media (max-width: 768px) {
