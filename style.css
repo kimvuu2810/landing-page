@@ -1100,6 +1100,9 @@
 
   /* ===== TRUST LIST: swiper trên mobile ===== */
   @media (max-width: 768px) {
+    .trust-right {
+      min-width: 0; /* ngăn grid column bị thổi phồng */
+    }
     .trust-list {
       flex-direction: row;
       overflow-x: auto;
@@ -1107,15 +1110,12 @@
       -webkit-overflow-scrolling: touch;
       gap: 14px;
       padding: 4px 0 16px;
-      margin: 0 -20px;
-      padding-left: 20px;
-      padding-right: 20px;
       scrollbar-width: none;
       -ms-overflow-style: none;
     }
     .trust-list::-webkit-scrollbar { display: none; }
     .trust-item {
-      flex: 0 0 82%;
+      flex: 0 0 100%; /* 1 thẻ = 1 màn hình, không cắt chữ */
       scroll-snap-align: start;
       transform: none !important;
     }
