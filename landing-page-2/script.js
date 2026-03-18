@@ -32,7 +32,7 @@
 
   // === SCROLL REVEAL ===
   document.addEventListener("DOMContentLoaded", function() {
-    const reveals = document.querySelectorAll(".reveal, .reveal-left, .reveal-right");
+    const reveals = document.querySelectorAll(".reveal, .reveal-left, .reveal-right, .etk-reveal-right");
     const observer = new IntersectionObserver(function(entries) {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
