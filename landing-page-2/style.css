@@ -880,13 +880,18 @@
 
   /* ===== QUY TRÌNH CẤY GHÉP IMPLANT ===== */
   .process-implant {
-    background: linear-gradient(150deg, #f0f7ff 0%, #e8f4f0 40%, #fdf8f0 70%, #f0f4ff 100%);
+    background: var(--navy-deep);
     position: relative;
     overflow: hidden;
     padding-top: 80px;
     padding-bottom: 80px;
   }
-  /* Orbs màu sắc nổi bật trên nền sáng */
+  /* Text overrides cho nền tối */
+  .process-implant .section-label { color: var(--gold); }
+  .process-implant .section-title { color: var(--white); }
+  .process-implant .section-title span { color: var(--gold); }
+  .process-implant .section-desc { color: rgba(255,255,255,0.65); }
+  /* Orbs màu sắc nổi bật trên nền tối */
   .process-bg-orb {
     position: absolute;
     border-radius: 50%;
@@ -912,7 +917,7 @@
   .process-bg-grid {
     position: absolute;
     inset: 0;
-    background-image: radial-gradient(rgba(27,42,74,0.07) 1.5px, transparent 1.5px);
+    background-image: radial-gradient(rgba(255,255,255,0.06) 1.5px, transparent 1.5px);
     background-size: 30px 30px;
     pointer-events: none;
   }
@@ -1052,7 +1057,7 @@
   .carousel-btn.next { right: 0; }
 
   /* ===== VIDEO TESTIMONIALS ===== */
-  .video-testimonials { background: var(--white); padding: 80px 24px; }
+  .video-testimonials { background: var(--cream); padding: 80px 24px; }
   .video-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 900px; margin: 0 auto; }
   .video-item { position: relative; width: 100%; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-md); aspect-ratio: 9/16; background: #000; transition: var(--transition); border: 4px solid var(--cream); }
   .video-item:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.15); border-color: var(--gold); }
@@ -1074,7 +1079,7 @@
   @media (max-width: 768px) { .press-item { flex: 0 0 85%; height: 400px; } }
 
   /* ===== FAQ (Accordion) ===== */
-  .faq { background: var(--white); padding: 80px 24px; }
+  .faq { background: var(--gray-100); padding: 80px 24px; }
   .faq-header { max-width: 800px; margin: 0 auto 50px; text-align: center; }
   .faq-header h2 { font-family: 'Be Vietnam Pro', sans-serif; font-size: clamp(24px, 4vw, 36px); color: var(--navy); text-transform: uppercase; margin-bottom: 20px; }
   .faq-list { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
