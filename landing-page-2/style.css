@@ -613,9 +613,9 @@
   /* ===== IMPLANT PRIVILEGE BANNER ===== */
   .implant-priv {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 3fr 2fr;
     gap: 48px;
-    align-items: center;
+    align-items: stretch;
     margin-top: 48px;
   }
   /* Left: privilege list */
@@ -731,6 +731,137 @@
     font-style: italic;
     line-height: 1.5;
     text-align: center;
+  }
+
+  /* ===== IMPLANT PAYMENT BOX (cột phải bảng giá) ===== */
+  .implant-payment-box {
+    background: linear-gradient(160deg, var(--navy-deep) 0%, var(--navy) 100%);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(15,27,51,0.4);
+    display: flex;
+    flex-direction: column;
+  }
+  /* Nửa trên: Giá Implant ETK */
+  .payment-price-section {
+    padding: 32px 28px 28px;
+    border-bottom: 1px solid rgba(201,169,110,0.25);
+    position: relative;
+  }
+  .payment-price-section::after {
+    content: '';
+    position: absolute;
+    top: -50px; right: -50px;
+    width: 160px; height: 160px;
+    background: rgba(201,169,110,0.07);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .payment-price-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .payment-price-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(18px, 2.2vw, 24px);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .payment-price-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .payment-price-old {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+  }
+  .old-num {
+    text-decoration: line-through;
+    font-weight: 600;
+    font-size: 15px;
+  }
+  .payment-price-new {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .new-num {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 3vw, 36px);
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+  }
+  .save-badge {
+    background: var(--gold);
+    color: var(--navy-deep);
+    font-size: 12px;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+  }
+  /* Nửa dưới: Thanh toán 2 đợt */
+  .payment-schedule-section {
+    padding: 24px 28px 28px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .payment-schedule-title {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  .payment-schedule-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.6;
+    margin-bottom: 18px;
+  }
+  .payment-stages {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .payment-stage {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(201,169,110,0.3);
+    border-radius: 14px;
+    padding: 14px 12px;
+    text-align: center;
+  }
+  .stage-header {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--gold);
+    margin-bottom: 6px;
+    letter-spacing: 0.3px;
+  }
+  .stage-desc {
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.5;
   }
 
   /* ===== TRUST ===== */
@@ -1052,6 +1183,13 @@
     .implant-priv {
       grid-template-columns: 1fr;
       gap: 32px;
+    }
+    .payment-stages {
+      grid-template-columns: 1fr 1fr;
+    }
+    .payment-price-section,
+    .payment-schedule-section {
+      padding: 24px 20px;
     }
   }
 
