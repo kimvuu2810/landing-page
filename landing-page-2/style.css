@@ -114,6 +114,15 @@
     transition: var(--transition); box-shadow: var(--shadow-gold); border: none; cursor: pointer;
   }
   .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(201,169,110,0.5); }
+  .btn-gold {
+    display: block; background: linear-gradient(135deg, #E8A020, #C97A10);
+    color: #fff; padding: 15px 28px; border-radius: 50px;
+    font-size: 15px; font-weight: 800; text-decoration: none; letter-spacing: 0.5px;
+    text-align: center; transition: var(--transition);
+    box-shadow: 0 6px 24px rgba(232,160,32,0.45); border: none; cursor: pointer;
+    text-transform: uppercase;
+  }
+  .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(232,160,32,0.6); background: linear-gradient(135deg, #F0A820, #D98010); }
   .btn-secondary {
     display: inline-block; background: transparent; color: var(--gold); padding: 14px 36px; border-radius: 50px;
     font-size: 14px; font-weight: 500; text-decoration: none; border: 1.5px solid var(--gold); transition: var(--transition); cursor: pointer;
@@ -613,7 +622,7 @@
   /* ===== IMPLANT PRIVILEGE BANNER ===== */
   .implant-priv {
     display: grid;
-    grid-template-columns: 3fr 2fr;
+    grid-template-columns: 1fr 1fr;
     gap: 48px;
     align-items: stretch;
     margin-top: 48px;
@@ -634,9 +643,9 @@
     display: flex;
     align-items: flex-start;
     gap: 12px;
-    font-size: 15px;
+    font-size: 13.5px;
     color: var(--navy);
-    line-height: 1.5;
+    line-height: 1.45;
   }
   .implant-priv-check {
     width: 22px; height: 22px; min-width: 22px;
@@ -793,23 +802,28 @@
     font-size: 15px;
   }
   .payment-price-new {
+    background: rgba(201,169,110,0.12);
+    border: 2px solid rgba(201,169,110,0.45);
+    border-radius: 14px;
+    padding: 14px 16px;
     display: flex;
     align-items: center;
     gap: 12px;
     flex-wrap: wrap;
+    margin-top: 4px;
   }
   .new-num {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(26px, 3vw, 36px);
+    font-size: clamp(28px, 3.2vw, 40px);
     font-weight: 900;
     color: var(--gold);
-    line-height: 1.1;
+    line-height: 1.0;
     letter-spacing: -0.5px;
   }
   .save-badge {
     background: var(--gold);
     color: var(--navy-deep);
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 800;
     padding: 4px 10px;
     border-radius: 20px;
